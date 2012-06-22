@@ -11,6 +11,11 @@ map <F12> :w<CR>:!pdflatex %:p<CR>
 
 map '% %<CR>%--------------------------------<Esc>kA
 
+" if not in terminal mode, spell checker will be
+" ms word-like squiggly underlines so turn it on
+if v:progname =~? "gvim"
+  setlocal spell!
+endif
 
 imap 'fr \begin{frame}[c]\frametitle{}<CR><CR>\end{frame}<Esc>2k$i
 imap 'it \begin{itemize}<Esc>yyplcwend<Esc>O<C-T>\item
