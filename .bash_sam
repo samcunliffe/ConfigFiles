@@ -1,0 +1,86 @@
+
+#############
+## Aliases ##
+#############
+
+# safety
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+# the 'ls' family 
+alias ll="ls -lh"
+alias ls='ls -hF --color' # add colors for filetype recognition
+alias la='ls -Alh'        # show hidden files
+alias lx='ls -lXBh'       # sort by extension
+alias lk='ls -lSrh'       # sort by size, biggest last
+alias lc='ls -ltcrh'      # sort by and show change time, most recent last
+alias lu='ls -lturh'      # sort by and show access time, most recent last
+alias lt='ls -ltrh'       # sort by date, most recent last
+alias lm='ls -alh |more'  # pipe through 'more'
+alias lr='ls -lRh'        # recursive ls
+alias tree='tree -Csu'    # nice alternative to 'recursive ls'
+alias l='ls -CFh'
+alias cls="clear && ls"
+
+# go up directory
+alias ..='cd ..'
+
+######################
+## Ultra-short cuts ##
+######################
+
+# use with care, not to everybody's taste
+alias v='vim'
+alias p='python'
+alias e='evince' # kpdf is unreasonably ugly
+alias r='root -l'
+
+##################
+## ROOT Shizzle ##
+##################
+
+# Stop Root's anoying splash screen
+alias root='root -l'
+
+# root with a TBrowser straight away
+alias rtb='root -l /home/hep/stc09/Scripts/newTBrowser.C'
+
+# invoke g++ with root cflags bells and whistles
+alias gr='g++ `root-config --cflags --libs` '
+alias grrf='g++ `root-config --cflags --libs` -lRooFit -lRooFitCore   '
+alias grrs='g++ `root-config --cflags --libs` -lRooFit -lRooFitCore -lRooStats -lFoam -lMinuit '
+
+##############
+## Printing ##
+##############
+# I always print to lp4345 in the terminal room, to see all
+# available printers do:   lpstat -p
+
+# economic two pages per side, landscape
+alias econprint='lp -d lp4345 -o number-up=2 -o sides=two-sided-long-edge'
+
+# one page per side
+alias fullprint='lp -d lp4345 -o sides=two-sided-long-edge'
+
+###############
+## Shortcuts ##
+###############
+
+# get tube map from www
+alias tubemap='evince http://www.tfl.gov.uk/assets/downloads/standard-tube-map.pdf'
+
+# go to pdg
+alias pdg='firefox http://pdglive.lbl.gov/listings1.brl?quickin=Y'
+
+# there really should be a man page for this
+alias man_grammar='firefox http://www.bristol.ac.uk/arts/exercises/grammar/grammar_tutorial/index.htm'
+
+# sam h
+alias jabberwocky='echo "vorpal swords at the ready"'
+
+##################
+## Environment ###
+##################
+
+export SVN_EDITOR=vim
