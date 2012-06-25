@@ -34,9 +34,20 @@ case "$-" in
   # make prompt fancy.
   #   \n puts a return carrage to seperate commands
   #      from one-another. I find this more readable
+  #   colour depending on hostname domain
+  #
   #   [user@host:current directory]$
-  PS1='\n[\u@\[\033[00;31m\]\h\[\033[00m\]:\W]\$ ';;
-
+  #
+  if [ `hostname -d` = "hep.ph.ic.ac.uk" ]; then 
+    # imperial == red
+    PS1='\n[\u@\[\033[00;31m\]\h\[\033[00m\]:\W]\$ '
+  elif [ `hostname -d` = "cern.ch" ]; then
+    # cern == blue
+    PS1='\n[\u@\[\033[00;34m\]\h\[\033[00m\]:\W]\$ '
+  else
+    # home == yellow
+    PS1='\n[\u@\[\033[00;31m\]\h\[\033[00m\]:\W]\$ '
+  fi;;
 *)
   # This shell is not interactive
 esac
