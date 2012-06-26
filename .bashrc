@@ -19,6 +19,12 @@ if [ -f ~/.bash_lhcb ]; then
 	. ~/.bash_lhcb
 fi
 
+# sourch ubuntu sepcific aliases
+if [ -f ~/.bash_ubuntu ]; then
+	. ~/.bash_ubuntu
+fi
+
+
 # check everything
 alias hello=' echo -ne "\nHello, " ; whoami &&
               echo -ne "  You are using \t" ; hostname &&
@@ -46,7 +52,7 @@ case "$-" in
     PS1='\n[\u@\[\033[00;34m\]\h\[\033[00m\]:\W]\$ '
   else
     # home == yellow
-    PS1='\n[\u@\[\033[00;31m\]\h\[\033[00m\]:\W]\$ '
+    PS1='\n[${debian_chroot:+($debian_chroot)}\u@\[\033[01;33m\]\h\[\033[00m\]:\W]\$ '
   fi;;
 *)
   # This shell is not interactive
