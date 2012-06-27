@@ -45,7 +45,7 @@ imap ''co cout<<""<<endl;<Esc>7hi
  
 " ROOT and RooFit syntax highlighting
 " /usr/share/vim/vim70/syntax for examples
-syn keyword rootType  Int_t Long64_t Double_t Float_t Bool_t
+syn keyword rootType  Int_t Long64_t Double_t Float_t Bool_t Color_t
 syn keyword rootType  TH1F TH1D TH1 TGraph TH2F TH2D TH2
 syn keyword rootType  TH3F TH3D TH3 
 syn keyword rootType  TLorentzVector TGenPhaseSpace
@@ -63,7 +63,7 @@ syn keyword rooType   RooGaussian RooExponential RooDataSet
 syn keyword rooType   RooKeysPdf RooPlot RooSimultaneous
 syn keyword rooType   RooCategory RooArgList RooWorkspace
 syn keyword rooType   RooAddPdf RooLandau RooCBShape
-syn keyword rooType   RooChebychev 
+syn keyword rooType   RooChebychev
 
 syn keyword strType   string stringstream 
 syn keyword vecType   vector
