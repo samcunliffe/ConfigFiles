@@ -50,7 +50,7 @@ syn keyword rootType  TH1F TH1D TH1 TGraph TH2F TH2D TH2
 syn keyword rootType  TH3F TH3D TH3 
 syn keyword rootType  TLorentzVector TGenPhaseSpace TTreeFormula 
 syn keyword rootType  TTree TBranch TFile TChain TCanvas TString
-syn keyword rootType  TDirectory TObject TIter
+syn keyword rootType  TDirectory TObject TIter TKey
 syn keyword rootType  TLine TBox TLegend TLatex
 syn keyword rootType  TRandom3 TMath TVector3
 
