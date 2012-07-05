@@ -70,6 +70,7 @@ alias fullprint='lp -d lp4345 -o sides=two-sided-long-edge'
 # get tube map from www
 alias tubemap='evince http://www.tfl.gov.uk/assets/downloads/standard-tube-map.pdf'
 alias tpgmap='evince http://www.tpg.ch/documents/10162/139522/Plan+peripherique+-+mai+2012'
+alias ybus='evince http://www.tpg.ch/html/pdf/Y/YAllerbrun01.pdf & evince http://www.tpg.ch/html/pdf/Y/YRetourcern02.pdf'
 
 # go to pdg
 alias pdg='firefox http://pdglive.lbl.gov/listings1.brl?quickin=Y'
