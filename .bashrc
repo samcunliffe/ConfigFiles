@@ -44,12 +44,15 @@ case "$-" in
   #
   #   [user@host:current directory]$
   #
-  if [ `hostname -d` = "hep.ph.ic.ac.uk" ]; then 
+  if [[ `hostname -d` == "hep.ph.ic.ac.uk" ]]; then 
     # imperial == red
     PS1='\n[\u@\[\033[00;31m\]\h\[\033[00m\]:\W]\$ '
-  elif [ `hostname -d` = "cern.ch" ]; then
+  elif [[ `hostname -d` == "cern.ch" ]]; then
     # cern == blue
     PS1='\n[\u@\[\033[00;34m\]\h\[\033[00m\]:\W]\$ '
+  elif [[ `hostname` == "pclbic02" ]]; then
+    # my cern desktop
+    PS1='\n[\u@\[\033[01;34m\]\h\[\033[00m\]:\W]\$ '
   else
     # home == yellow
     PS1='\n[${debian_chroot:+($debian_chroot)}\u@\[\033[01;33m\]\h\[\033[00m\]:\W]\$ '
