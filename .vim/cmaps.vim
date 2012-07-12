@@ -48,11 +48,12 @@ imap ''co cout<<""<<endl;<Esc>7hi
 syn keyword rootType  Int_t Long64_t Double_t Float_t Bool_t Color_t
 syn keyword rootType  TH1F TH1D TH1 TGraph TH2F TH2D TH2
 syn keyword rootType  TH3F TH3D TH3 
-syn keyword rootType  TLorentzVector TGenPhaseSpace TTreeFormula 
+syn keyword rootType  TGenPhaseSpace TTreeFormula TRandom3 TMath 
 syn keyword rootType  TTree TBranch TFile TChain TCanvas TString
 syn keyword rootType  TDirectory TObject TIter TKey
 syn keyword rootType  TLine TBox TLegend TLatex
-syn keyword rootType  TRandom3 TMath TVector3
+syn keyword rootType  TVector2 TVector3 TRotation 
+syn keyword rootType  TLorentzVector TLorentzRotation
 
 syn keyword rootColor kRed kYellow kOrange kBlue kPink kMagenta
 syn keyword rootColor kViolet kBlue kAzure kCyan kTeal kGreen kSpring
