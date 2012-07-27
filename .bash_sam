@@ -32,6 +32,7 @@ alias ..='cd ..'
 
 # use with care, not to everybody's taste
 alias v='vim'
+alias g='gvim'
 alias p='python'
 alias e='evince' # kpdf is unreasonably ugly
 alias r='root -l'
@@ -44,12 +45,19 @@ alias r='root -l'
 alias root='root -l'
 
 # root with a TBrowser straight away
-alias rtb='root -l ~/Scripts/newTBrowser.C'
+alias rtb='root -l $HOME/Scripts/newTBrowser.C'
 
 # invoke g++ with root cflags bells and whistles
 alias gr='g++ `root-config --cflags --libs` '
 alias grrf='g++ `root-config --cflags --libs` -lRooFit -lRooFitCore   '
 alias grrs='g++ `root-config --cflags --libs` -lRooFit -lRooFitCore -lRooStats -lFoam -lMinuit '
+
+#############
+## Scripts ##
+#############
+
+# Sammy H's particles.sh
+alias particles='. $HOME/Scripts/particles.sh'
 
 ##############
 ## Printing ##
