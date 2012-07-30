@@ -1,33 +1,19 @@
 <?xml version="1.0"?>
 <gconf>
-	<entry name="scrollback_lines" mtime="1343577264" type="int" value="2000"/>
-	<entry name="default_size_columns" mtime="1343577264" type="int" value="60"/>
-	<entry name="default_size_rows" mtime="1343577264" type="int" value="15"/>
-	<entry name="use_custom_default_size" mtime="1343577264" type="bool" value="true"/>
-	<entry name="font" mtime="1343577264" type="string">
-		<stringvalue>Ubuntu Mono 12</stringvalue>
+	<entry name="palette" mtime="1343666269" type="string">
+		<stringvalue>#2E2E34343636:#CCCC00000000:#4E4E9A9A0606:#C4C4A0A00000:#34346565A4A4:#757550507B7B:#060698209A9A:#D3D3D7D7CFCF:#555557575353:#EFEF29292929:#8A8AE2E23434:#FCFCE9E94F4F:#72729F9FCFCF:#ADAD7F7FA8A8:#3434E2E2E2E2:#EEEEEEEEECEC</stringvalue>
 	</entry>
-	<entry name="use_system_font" mtime="1343577264" type="bool" value="false"/>
-	<entry name="use_theme_colors" mtime="1343577264" type="bool" value="false"/>
-	<entry name="background_darkness" mtime="1343577264" type="float" value="0.43478259444236755"/>
-	<entry name="background_type" mtime="1330074735" type="string">
-		<stringvalue>solid</stringvalue>
+	<entry name="alternate_screen_scroll" mtime="1343666269" type="bool" value="true"/>
+	<entry name="background_color" mtime="1343666269" type="string">
+		<stringvalue>#FFFFFFFFDDDD</stringvalue>
 	</entry>
-	<entry name="use_theme_background" mtime="1343577264" type="bool" value="false"/>
-	<entry name="palette" mtime="1343577264" type="string">
-		<stringvalue>#000000000000:#FFFF5DDE71DB:#6A52D1EB082E:#F57BD6664C4A:#63D7A829FFFF:#D0F1661DE243:#2C06BA6ABCD4:#D3D3D7D7CFCF:#555557575353:#EFEF7F2A7F2A:#9C51FFFF3AE7:#FFFFFB3E8455:#A666D1C0FFFF:#E147A560DAC4:#3434E2E2E2E2:#EEEEEEEEECEC</stringvalue>
-	</entry>
-	<entry name="alternate_screen_scroll" mtime="1343577264" type="bool" value="true"/>
-	<entry name="background_color" mtime="1343577264" type="string">
-		<stringvalue>#353553536F6F</stringvalue>
-	</entry>
-	<entry name="visible_name" mtime="1343577264" type="string">
+	<entry name="visible_name" mtime="1343666269" type="string">
 		<stringvalue>Default</stringvalue>
 	</entry>
-	<entry name="bold_color" mtime="1343577264" type="string">
+	<entry name="bold_color" mtime="1343666269" type="string">
 		<stringvalue>#000000000000</stringvalue>
 	</entry>
-	<entry name="foreground_color" mtime="1343577264" type="string">
-		<stringvalue>#FFFFFFFFFFFF</stringvalue>
+	<entry name="foreground_color" mtime="1343666269" type="string">
+		<stringvalue>#000000000000</stringvalue>
 	</entry>
 </gconf>
