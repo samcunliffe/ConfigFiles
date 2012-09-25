@@ -22,6 +22,7 @@ alias lr='ls -lRh'        # recursive ls
 alias tree='tree -Csu'    # nice alternative to 'recursive ls'
 alias l='ls -CFh'
 alias cls="clear && ls"
+alias cpls="clear && pwd && ls"
 
 # go up directory
 alias ..='cd ..'
@@ -61,18 +62,6 @@ alias grrs='g++ `root-config --cflags --libs` -lRooFit -lRooFitCore -lRooStats -
 
 # Sammy H's particles.sh
 alias particles='. $HOME/Scripts/particles.sh'
-
-##############
-## Printing ##
-##############
-# I always print to lp4345 in the terminal room, to see all
-# available printers do:   lpstat -p
-
-# economic two pages per side, landscape
-alias econprint='lp -d lp4345 -o number-up=2 -o sides=two-sided-long-edge'
-
-# one page per side
-alias fullprint='lp -d lp4345 -o sides=two-sided-long-edge'
 
 ###############
 ## Shortcuts ##
