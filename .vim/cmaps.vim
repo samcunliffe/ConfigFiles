@@ -42,6 +42,9 @@ imap ''co cout<<""<<endl;<Esc>7hi
 
 "imap ''/ <Space><Esc>75i/<Esc>$2xo<Esc>
          
+" C++ syntax highlighting
+syn keyword strType   string stringstream 
+syn keyword vecType   vector
  
 " ROOT and RooFit syntax highlighting
 " /usr/share/vim/vim70/syntax for examples
@@ -52,22 +55,24 @@ syn keyword rootType  TGenPhaseSpace TTreeFormula TRandom3 TMath
 syn keyword rootType  TTree TBranch TFile TChain TCanvas TString
 syn keyword rootType  TDirectory TObject TIter TKey
 syn keyword rootType  TLine TBox TLegend TLatex
+syn keyword rootType  TTime TDatime
 syn keyword rootType  TVector2 TVector3 TRotation 
 syn keyword rootType  TLorentzVector TLorentzRotation
 
 syn keyword rootColor kRed kYellow kOrange kBlue kPink kMagenta
 syn keyword rootColor kViolet kBlue kAzure kCyan kTeal kGreen kSpring
 
-syn keyword rooType   RooAbsPdf RooAbsReal
-syn keyword rooType   RooSimPdf RooRealVar RooFormulaVar
-syn keyword rooType   RooGaussian RooExponential RooDataSet
+syn keyword rooType   RooAbsPdf RooAbsReal RooFitResult
+syn keyword rooType   RooArgList RooArgSet
+syn keyword rooType   RooCategory RooWorkspace
+syn keyword rooType   RooPlot RooDataSet RooRealVar
+syn keyword rooType   RooAddPdf RooSimPdf 
+" all the pdfs under the sun
+syn keyword rooType   RooRealVar RooFormulaVar
+syn keyword rooType   RooGaussian RooExponential 
 syn keyword rooType   RooKeysPdf RooPlot RooSimultaneous
-syn keyword rooType   RooCategory RooArgList RooWorkspace
-syn keyword rooType   RooAddPdf RooLandau RooCBShape
-syn keyword rooType   RooChebychev
+syn keyword rooType   RooChebychev RooLandau RooCBShape
 
-syn keyword strType   string stringstream 
-syn keyword vecType   vector
 
 syn keyword rooConst  kTRUE kFALSE
 
