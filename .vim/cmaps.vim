@@ -54,6 +54,7 @@ syn keyword rootType  TDirectory TObject TIter TKey
 syn keyword rootType  TLine TBox TLegend TLatex
 syn keyword rootType  TVector2 TVector3 TRotation 
 syn keyword rootType  TLorentzVector TLorentzRotation
+syn keyword rootType  TDatime 
 
 syn keyword rootColor kRed kYellow kOrange kBlue kPink kMagenta
 syn keyword rootColor kViolet kBlue kAzure kCyan kTeal kGreen kSpring
@@ -65,6 +66,7 @@ syn keyword rooType   RooKeysPdf RooPlot RooSimultaneous
 syn keyword rooType   RooCategory RooArgList RooWorkspace
 syn keyword rooType   RooAddPdf RooLandau RooCBShape
 syn keyword rooType   RooChebychev
+syn keyword rooType   RooFitResult
 
 syn keyword strType   string stringstream 
 syn keyword vecType   vector
