@@ -138,9 +138,11 @@ def dsFromStr( string ):
     """Perform BKQuery on a srting and also get other mag polarity."""
     strings = []
     if string.find('Down') != -1:
+        print "dsFromStr(): You've given a mag UP sample, now getting mag DOWN"
         strings.append(string)
         strings.append(string.replace('Down','Up'))
     elif string.find('Up') != -1:
+        print "dsFromStr(): You've given a mag DOWN sample, now getting mag UP"
         strings.append(string)
         strings.append(string.replace('Up','Down'))
     else:
