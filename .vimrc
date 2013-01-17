@@ -7,6 +7,7 @@ set nocompatible
 " Settings for pathogen for easy install of plugins "
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 "call pathogen#infect()
+"call pathogen.infect()
 
 
 """"""""""""""""""""""""""""""
