@@ -5,36 +5,44 @@
 # often typing into my ganga sessions.
 ########################################
 
-# get failed subjobs
 def getFailed(njob):
   '''Gets list of failed subjobs'''
   return jobs(njob).subjobs.select(status='failed')
 
-
-# get completed subjobs
 def getCompleted(njob):
   '''Gets list of completed subjobs'''
   return jobs(njob).subjobs.select(status='completed')
 
+def getRunning(njob):
+  '''Gets list of running subjobs'''
+  return jobs(njob).subjobs.select(status='running')
 
-# failure rate
+def getLimbo(njob):
+  '''Gets list of subjobs that are not 'failed' or 'completed' '''
+  joblist=jobs(njob).subjobs.select(status='submitting')
+  for stat in ['submitted','running','completing','killed']:
+    joblist+=jobs(njob).subjobs.select(status=stat)
+  return joblist
+
+def percentageComplete(njob):
+  '''Calculates completion  %'''
+  ncomp=float(len(getCompleted(njob)))
+  ntotl=float(len(jobs(njob).subjobs))
+  return 100*ncomp/ntotl
+
 def failureRate(njob):
   '''Calculates failure rate %'''
   nfail=float(len(getFailed(njob)))
   ncomp=float(len(getCompleted(njob)))
   return 100*nfail/ncomp
 
-
-# resubmit failed subjobs
-def resubmitSubjobs(njob):
+def resubmitFailedSubjobs(njob):
   '''Resubmits all failed subjobs'''
   print 'Job '+str(njob)+': Resubmitting '+\
         str(len(jobs(njob).subjobs.select(status='failed')))+' failed subjobs.'
   jobs(njob).subjobs.select(status='failed').resubmit()
   return 0
 
-
-# download from grid storage
 def downloadCompletedSubjobs(njob):
   '''Downloads outputdata for all completed subjobs'''
   import os
@@ -59,7 +67,7 @@ def downloadCompletedSubjobs(njob):
 
 # makes a report, resubmits fails, checks for jobs stuck in completing 
 # then downloads all completed subjobs
-def doDownload(njob):
+def doEverything(njob):
   '''Does the lot: resubmits fails, checks for stuck and downloads.
      Will even buy you dinner. (c) Sam H esq.'''
   import os
@@ -130,9 +138,11 @@ def dsFromStr( string ):
     """Perform BKQuery on a srting and also get other mag polarity."""
     strings = []
     if string.find('Down') != -1:
+        print "dsFromStr(): You've given a mag UP sample, now getting mag DOWN"
         strings.append(string)
         strings.append(string.replace('Down','Up'))
     elif string.find('Up') != -1:
+        print "dsFromStr(): You've given a mag DOWN sample, now getting mag UP"
         strings.append(string)
         strings.append(string.replace('Up','Down'))
     else:
