@@ -17,12 +17,46 @@ def getRunning(njob):
   '''Gets list of running subjobs'''
   return jobs(njob).subjobs.select(status='running')
 
+def getCompleting(njob):
+  '''Gets list of completing subjobs'''
+  return jobs(njob).subjobs.select(status='completing')
+
+def getKilled(njob):
+  '''Gets list of killed subjobs'''
+  return jobs(njob).subjobs.select(status='killed')
+
+def getSubmitted(njob):
+  '''Gets list of submitted subjobs'''
+  return jobs(njob).subjobs.select(status='submitted')
+
 def getLimbo(njob):
   '''Gets list of subjobs that are not 'failed' or 'completed' '''
-  joblist=jobs(njob).subjobs.select(status='submitting')
-  for stat in ['submitted','running','completing','killed']:
-    joblist+=jobs(njob).subjobs.select(status=stat)
+  joblist = []
+  for sj in jobs(njob).subjobs:
+    if (sj.status is not 'failed') and (sj.status is not 'completed'):
+      joblist.append(sj)
   return joblist
+
+  #joblist=[jobs(njob).subjobs.select(status='submitting')]
+  #for stat in ['submitted','running','completing','killed']:
+  #  each=jobs(njob).subjobs.select(status=stat)
+  #  print each
+  #  joblist+=[each]
+  #return joblist
+
+def makeReport(njob):
+  '''Makes a report of the number of jobs in each status'''
+  print 'Job '+str(njob)+':'
+  print 'Number of subjobs:'
+  print '   completed  %d' %len(getCompleted(njob))
+  print '   completing %d' %len(getCompleting(njob))
+  print '   running    %d' %len(getRunning(njob))
+  print '   failed     %d' %len(getFailed(njob))
+  print '   submitted  %d' %len(getSubmitted(njob))
+  print '   killed     %d' %len(getKilled(njob))
+  print '   TOTAL      %d' %len(jobs(njob).subjobs)
+  print 
+  return
 
 def percentageComplete(njob):
   '''Calculates completion  %'''
@@ -71,19 +105,9 @@ def doEverything(njob):
   '''Does the lot: resubmits fails, checks for stuck and downloads.
      Will even buy you dinner. (c) Sam H esq.'''
   import os
-  
-  # make report
-  strjob=str(njob)
-  print 'Job '+strjob+':'
-  print 'Number of subjobs:'
-  print '   completed  %d' %len(jobs(njob).subjobs.select(status='completed'))
-  print '   completing %d' %len(jobs(njob).subjobs.select(status='completing'))
-  print '   running    %d' %len(jobs(njob).subjobs.select(status='running'))
-  print '   failed     %d' %len(jobs(njob).subjobs.select(status='failed'))
-  print '   submitted  %d' %len(jobs(njob).subjobs.select(status='submitted'))
-  print '   killed     %d' %len(jobs(njob).subjobs.select(status='killed'))
-  print '   TOTAL      %d' %len(jobs(njob).subjobs)
-  print 
+
+  # print a report of the status of subjobs
+  makeReport(njob)
 
   # resubmit all failed
   resubmitSubjobs(njob)
@@ -153,7 +177,5 @@ def dsFromStr( string ):
         dd = bk.getDataset()
         ds.extend(dd)
     return ds
-
-        
 
 print "\033[1mYou've got Sam's .ganga.py\033[0m with own functions."
