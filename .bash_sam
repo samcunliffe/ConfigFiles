@@ -30,6 +30,9 @@ alias ..='cd ..'
 # list top 10 biggest files in a place
 alias bigfiles='du -a . | sort -nr | head'
 
+# how many processors
+alias ncores='grep -c processor /proc/cpuinfo'
+
 ######################
 ## Ultra-short cuts ##
 ######################
