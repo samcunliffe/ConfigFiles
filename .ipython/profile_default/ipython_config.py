@@ -1,5 +1,4 @@
 # Configuration file for ipython.
-
 c = get_config()
 
 #------------------------------------------------------------------------------
@@ -80,8 +79,8 @@ c = get_config()
 # variable IPYTHON_DIR.
 # c.TerminalIPythonApp.ipython_dir = u'/afs/cern.ch/user/s/scunliff/.ipython'
 
-# Whether to display a banner upon starting IPython.
-# c.TerminalIPythonApp.display_banner = True
+# don't display a banner on startup
+#c.TerminalIPythonApp.display_banner = False #True
 
 # Start IPython quickly by skipping the loading of config files.
 # c.TerminalIPythonApp.quick = False
@@ -174,14 +173,17 @@ c = get_config()
 # change the default.
 # c.TerminalInteractiveShell.screen_length = 0
 
-# Set the editor used by IPython (default to $EDITOR/vi/notepad).
-# c.TerminalInteractiveShell.editor = 'vim'
+# Set the editor used by IPython
+c.TerminalInteractiveShell.editor = 'vim'
 
 # Deprecated, use PromptManager.justify
 # c.TerminalInteractiveShell.prompts_pad_left = True
 
-# The part of the banner to be printed before the profile
-# c.TerminalInteractiveShell.banner1 = 'Python 2.6.5 (r265:79063, Jan 23 2012, 16:26:09) \nType "copyright", "credits" or "license" for more information.\n\nIPython 0.12.1 -- An enhanced Interactive Python.\n?         -> Introduction and overview of IPython\'s features.\n%quickref -> Quick reference.\nhelp      -> Python\'s own help system.\nobject?   -> Details about \'object\', use \'object??\' for extra details.\n'
+# much shorter banner showing only version numbers
+import sys
+import IPython
+c.TerminalInteractiveShell.banner1 = "Python: %s IPython: %s\n" % (
+    sys.version.split('\n', 1)[0], IPython.__version__)
 
 # 
 # c.TerminalInteractiveShell.readline_parse_and_bind = ['tab: complete', '"\\C-l": clear-screen', 'set show-all-if-ambiguous on', '"\\C-o": tab-insert', '"\\C-r": reverse-search-history', '"\\C-s": forward-search-history', '"\\C-p": history-search-backward', '"\\C-n": history-search-forward', '"\\e[A": history-search-backward', '"\\e[B": history-search-forward', '"\\C-k": kill-line', '"\\C-u": unix-line-discard']

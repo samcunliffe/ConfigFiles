@@ -31,14 +31,15 @@ imap ''ma int main(int argc, char *argv[])<CR>{<CR>}<Esc>Oreturn 0;<Esc>O
 imap ''sw switch(){<CR>case :<CR>default:<CR>}<Esc>kO<C-T>break;<Esc>2khi
 imap ''co cout<<""<<endl;<Esc>7hi
 
-"map <leader>/ I//<Esc>j
 "imap <leader>/ <Esc>I//
 "imap ''* /*<Esc>O*/<Esc>h35i*<Esc>k35i*<Esc>2o<Esc>O
 "imap ''* /<Space><Esc>32i*<Esc>xyypx$hC/<Esc>O<C-T>.<Esc>o<Esc>kO<Esc>jxA
 "map <S-Insert> <MiddleMouse>
 
-" can press '?' in vim mode to comment out line
-"vmap ? I//<Esc>
+" can press '?' in visual mode to comment out lines
+vmap ? I//<Esc>
+" in normal mode can press ,/ to comment out line
+map <leader>/ I//<Esc>j
 
 "imap ''/ <Space><Esc>75i/<Esc>$2xo<Esc>
          
