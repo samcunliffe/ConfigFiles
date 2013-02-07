@@ -80,7 +80,8 @@ def resubmitFailedSubjobs(njob):
 def downloadCompletedSubjobs(njob):
   '''Downloads outputdata for all completed subjobs'''
   import os
-  print 'Job %d: Downloading completed Jobs.' %njob
+  print 'Job ' + str(njob) + ': There are ' + str(len(getCompleted(njob))) +\
+        ' completed Jobs.'
 
   for i in range(len(jobs(njob).subjobs)):
     sj = jobs(njob).subjobs(i)
