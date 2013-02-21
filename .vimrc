@@ -1,4 +1,3 @@
-
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
@@ -96,7 +95,6 @@ map <leader>ss :setlocal spell!<cr>
 let python_highlight_numbers = 1
 let python_highlight_builtins = 1
 let python_highlight_exceptions = 1
-
 
 """""""""""""""""""""""""""
 " Load my own defined maps 
