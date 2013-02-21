@@ -22,12 +22,16 @@ alias lr='ls -lRh'        # recursive ls
 alias tree='tree -Csu'    # nice alternative to 'recursive ls'
 alias l='ls -CFh'
 alias cls="clear && ls"
+alias cpls="clear && pwd && ls"
 
 # go up directory
 alias ..='cd ..'
 
 # list top 10 biggest files in a place
 alias bigfiles='du -a . | sort -nr | head'
+
+# how many processors
+alias ncores='grep -c processor /proc/cpuinfo'
 
 ######################
 ## Ultra-short cuts ##
@@ -62,17 +66,27 @@ alias grrs='g++ `root-config --cflags --libs` -lRooFit -lRooFitCore -lRooStats -
 # Sammy H's particles.sh
 alias particles='. $HOME/Scripts/particles.sh'
 
-##############
-## Printing ##
-##############
-# I always print to lp4345 in the terminal room, to see all
-# available printers do:   lpstat -p
-
-# economic two pages per side, landscape
-alias econprint='lp -d lp4345 -o number-up=2 -o sides=two-sided-long-edge'
-
-# one page per side
-alias fullprint='lp -d lp4345 -o sides=two-sided-long-edge'
+# extract basically every type of archive
+extract () {
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xvjf $1    ;;
+      *.tar.gz)    tar xvzf $1    ;;
+      *.bz2)       bunzip2 $1     ;;
+      *.rar)       rar x $1       ;;
+      *.gz)        gunzip $1      ;;
+      *.tar)       tar xvf $1     ;;
+      *.tbz2)      tar xvjf $1    ;;
+      *.tgz)       tar xvzf $1    ;;
+      *.zip)       unzip $1       ;;
+      *.Z)         uncompress $1  ;;
+      *.7z)        7z x $1        ;;
+      *)           echo "don't know how to extract '$1'..." ;;
+    esac
+  else
+    echo "'$1' is not a valid file!"
+  fi
+}
 
 ###############
 ## Shortcuts ##
