@@ -31,17 +31,21 @@ imap ''ma int main(int argc, char *argv[])<CR>{<CR>}<Esc>Oreturn 0;<Esc>O
 imap ''sw switch(){<CR>case :<CR>default:<CR>}<Esc>kO<C-T>break;<Esc>2khi
 imap ''co cout<<""<<endl;<Esc>7hi
 
-"map <leader>/ I//<Esc>j
 "imap <leader>/ <Esc>I//
 "imap ''* /*<Esc>O*/<Esc>h35i*<Esc>k35i*<Esc>2o<Esc>O
 "imap ''* /<Space><Esc>32i*<Esc>xyypx$hC/<Esc>O<C-T>.<Esc>o<Esc>kO<Esc>jxA
 "map <S-Insert> <MiddleMouse>
 
-" can press '?' in vim mode to comment out line
-"vmap ? I//<Esc>
+" can press '?' in visual mode to comment out lines
+vmap ? I//<Esc>
+" in normal mode can press ,/ to comment out line
+map <leader>/ I//<Esc>j
 
 "imap ''/ <Space><Esc>75i/<Esc>$2xo<Esc>
          
+" C++ syntax highlighting
+syn keyword strType   string stringstream 
+syn keyword vecType   vector
  
 " ROOT and RooFit syntax highlighting
 " /usr/share/vim/vim70/syntax for examples
@@ -52,27 +56,33 @@ syn keyword rootType  TGenPhaseSpace TTreeFormula TRandom3 TMath
 syn keyword rootType  TTree TBranch TFile TChain TCanvas TString
 syn keyword rootType  TDirectory TObject TIter TKey
 syn keyword rootType  TLine TBox TLegend TLatex
+syn keyword rootType  TTime TDatime
 syn keyword rootType  TVector2 TVector3 TRotation 
 syn keyword rootType  TLorentzVector TLorentzRotation
+syn keyword rootType  TDatime 
 
 syn keyword rootColor kRed kYellow kOrange kBlue kPink kMagenta
 syn keyword rootColor kViolet kBlue kAzure kCyan kTeal kGreen kSpring
+syn keyword rootConst kTRUE kFALSE
 
-syn keyword rooType   RooAbsPdf RooAbsReal
-syn keyword rooType   RooSimPdf RooRealVar RooFormulaVar
-syn keyword rooType   RooGaussian RooExponential RooDataSet
-syn keyword rooType   RooKeysPdf RooPlot RooSimultaneous
+syn keyword rooType   RooAbsPdf RooAbsReal RooFitResult
+syn keyword rooType   RooArgList RooArgSet
+syn keyword rooType   RooCategory RooWorkspace
+syn keyword rooType   RooPlot RooDataSet RooRealVar
+
+" all the pdfs under the sun
+syn keyword rooType   RooAddPdf RooSimPdf 
+syn keyword rooType   RooRealVar RooFormulaVar
+syn keyword rooType   RooGaussian RooExponential 
+syn keyword rooType   RooKeysPdf RooSimultaneous
 syn keyword rooType   RooCategory RooArgList RooWorkspace
 syn keyword rooType   RooAddPdf RooLandau RooCBShape
 syn keyword rooType   RooChebychev
+syn keyword rooType   RooFitResult
 
-syn keyword strType   string stringstream 
-syn keyword vecType   vector
-
-syn keyword rooConst  kTRUE kFALSE
 
 hi def link rootType  Type
-hi def link rooColor  Constant
+hi def link rootColor Constant
 hi def link rooType   Type
 hi def link strType   Type
 hi def link vecType   Type

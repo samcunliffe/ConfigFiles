@@ -4,6 +4,11 @@ call pathogen#infect()
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Settings for pathogen for easy install of plugins "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+"call pathogen#infect()
+"call pathogen.infect()
 
 
 """"""""""""""""""""""""""""""
