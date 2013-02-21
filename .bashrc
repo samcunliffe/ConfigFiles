@@ -36,6 +36,8 @@ alias hello=' echo -ne "\nHello, " ; whoami &&
 case "$-" in
 *i*)
   hello
+  echo -ne "\nNotes:\n"
+  cat ~/Notes
 
   # make prompt fancy.
   #   \n puts a return carrage to seperate commands
