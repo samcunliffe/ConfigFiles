@@ -88,6 +88,8 @@ extract () {
   fi
 }
 
+alias geeknote='python $HOME/Software/Evernote/geeknote/geeknote.py'
+
 ###############
 ## Shortcuts ##
 ###############
