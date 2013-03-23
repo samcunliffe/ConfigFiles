@@ -1,14 +1,11 @@
+
+" turn on pathogen for easy install of plugins
 call pathogen#infect()
 
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Settings for pathogen for easy install of plugins "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""
-"call pathogen#infect()
-"call pathogen.infect()
 
 
 """"""""""""""""""""""""""""""
