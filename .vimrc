@@ -95,6 +95,8 @@ let python_highlight_numbers = 1
 let python_highlight_builtins = 1
 let python_highlight_exceptions = 1
 
+let g:syntastic_c_include_dirs = [ '../include', 'include', '/afs/cern.ch/sw/lcg/app/releases/ROOT/5.34.05/x86_64-slc5-gcc46-opt/root/include/' ]
+
 """""""""""""""""""""""""""
 " Load my own defined maps 
 " for different languages
