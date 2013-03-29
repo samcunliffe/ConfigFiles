@@ -113,3 +113,6 @@ alias jabberwocky='echo "vorpal swords at the ready"'
 export VISUAL=vim
 export EDITOR=vim
 export SVN_EDITOR=vim
+
+# append my personal python packages to the pythonpath
+export PYTHONPATH=$HOME/Python/:$PYTHONPATH

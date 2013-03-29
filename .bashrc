@@ -55,6 +55,10 @@ case "$-" in
   elif [[ `hostname` == "pclbic02" ]]; then
     # my cern desktop
     PS1='\n[\u@\[\033[01;34m\]\h\[\033[00m\]:\W]\$ '
+  elif [[ `hostname` == "livewareProblem" ]]; then
+    # lp == green
+    #PS1='\n[\033[1m\u@\[\033[01;32m\]\h\[\033[00m\]:\W]\$ '
+    true
   else
     # home == yellow
     PS1='\n[${debian_chroot:+($debian_chroot)}\u@\[\033[01;33m\]\h\[\033[00m\]:\W]\$ '
