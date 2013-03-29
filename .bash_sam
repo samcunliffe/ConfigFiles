@@ -33,6 +33,9 @@ alias bigfiles='du -a . | sort -nr | head'
 # how many processors
 alias ncores='grep -c processor /proc/cpuinfo'
 
+# how much ram
+alias totram='/proc/meminfo | grep "memtotal"'
+
 ######################
 ## Ultra-short cuts ##
 ######################
