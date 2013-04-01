@@ -29,7 +29,7 @@ imap ''ei else if(){<CR>}<Esc>k2wli
 imap ''el else{<CR>}<Esc>O<C-T>
 imap ''ma int main(int argc, char *argv[])<CR>{<CR>}<Esc>Oreturn 0;<Esc>O
 imap ''sw switch(){<CR>case :<CR>default:<CR>}<Esc>kO<C-T>break;<Esc>2khi
-imap ''co std::cout<<""<<std::endl;<Esc>12hi
+imap ''co std::cout << "" << std::endl;<Esc>14hi
 
 "imap <leader>/ <Esc>I//
 "imap ''* /*<Esc>O*/<Esc>h35i*<Esc>k35i*<Esc>2o<Esc>O
