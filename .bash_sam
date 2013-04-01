@@ -33,6 +33,9 @@ alias bigfiles='du -a . | sort -nr | head'
 # how many processors
 alias ncores='grep -c processor /proc/cpuinfo'
 
+# how much ram
+alias totram='/proc/meminfo | grep "memtotal"'
+
 ######################
 ## Ultra-short cuts ##
 ######################
@@ -88,6 +91,8 @@ extract () {
   fi
 }
 
+#alias geeknote='python $HOME/Software/Evernote/geeknote/geeknote.py'
+
 ###############
 ## Shortcuts ##
 ###############
@@ -113,3 +118,6 @@ alias jabberwocky='echo "vorpal swords at the ready"'
 export VISUAL=vim
 export EDITOR=vim
 export SVN_EDITOR=vim
+
+# append my personal python packages to the pythonpath
+export PYTHONPATH=$HOME/Python/:$PYTHONPATH
