@@ -21,9 +21,11 @@ map ''# O###########################################<Esc>YpO#<Space>
 " can press '?' in vim mode to comment out line
 vmap ? I#<Esc>
 
-" pres leader then '/' to comment out line in normal mode
+" press leader then '/' to comment out line in normal mode
 "imap <leader>/ <Esc>I#
 map <leader>/ I#<Esc>j
+" and leader then '.' to uncomment line (or delete first char)
+map <leader>. I<Del><Esc>j
 
 " define some types
 syn keyword rootType  TH1F TH1D TH1 TGraph TH2F TH2D TH2
