@@ -51,7 +51,7 @@ case "$-" in
     # perhaps it wasn't set in .bash_local?
     PS1='[\u@\h:\W]\$ '
   else
-    PS1="[$LOC_COL\u@\h$TXT_RST:\W]\$ "
+    PS1="[\[$LOC_COL\]\u@\h\[$TXT_RST\]:\W]\$ "
   fi;;
 *)
   # This shell is not interactive
