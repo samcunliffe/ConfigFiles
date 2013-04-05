@@ -44,20 +44,6 @@ def getLimbo(njob):
   #  joblist+=[each]
   #return joblist
 
-def makeReport(njob):
-  '''Makes a report of the number of jobs in each status'''
-  print 'Job '+str(njob)+':'
-  print 'Number of subjobs:'
-  print '   completed  %d' %len(getCompleted(njob))
-  print '   completing %d' %len(getCompleting(njob))
-  print '   running    %d' %len(getRunning(njob))
-  print '   failed     %d' %len(getFailed(njob))
-  print '   submitted  %d' %len(getSubmitted(njob))
-  print '   killed     %d' %len(getKilled(njob))
-  print '   TOTAL      %d' %len(jobs(njob).subjobs)
-  print 
-  return
-
 def percentageComplete(njob):
   '''Calculates completion  %'''
   ncomp=float(len(getCompleted(njob)))
@@ -69,6 +55,23 @@ def failureRate(njob):
   nfail=float(len(getFailed(njob)))
   ncomp=float(len(getCompleted(njob)))
   return 100*nfail/ncomp
+
+def makeReport(njob):
+  '''Makes a report of the number of jobs in each status'''
+  print 'Job '+str(njob)+':'
+  print 'Number of subjobs:'
+  print '   completed  %d' %len(getCompleted(njob))
+  print '   completing %d' %len(getCompleting(njob))
+  print '   running    %d' %len(getRunning(njob))
+  print '   failed     %d' %len(getFailed(njob))
+  print '   submitted  %d' %len(getSubmitted(njob))
+  print '   killed     %d' %len(getKilled(njob))
+  print '   TOTAL      %d' %len(jobs(njob).subjobs)
+  print 'Complete      %.2f %%' %percentageComplete(njob)
+  print 'Failure rate  %.2f %%' %failureRate(njob)
+  print 
+  return
+
 
 def resubmitFailedSubjobs(njob):
   '''Resubmits all failed subjobs'''
