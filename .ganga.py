@@ -1,185 +1,200 @@
-########################################
-#        Sam C's .ganga.py
-# Default imported into ganga, makes 
-# functions for stuff I find myself
-# often typing into my ganga sessions.
-########################################
+""".ganga.py
 
-def getFailed(njob):
-  '''Gets list of failed subjobs'''
-  return jobs(njob).subjobs.select(status='failed')
+Default imported into ganga. All functions in the scope of the ganga session.
+Usefull shortcut functions for stuff I find myself often typing.
+"""
 
-def getCompleted(njob):
-  '''Gets list of completed subjobs'''
-  return jobs(njob).subjobs.select(status='completed')
 
-def getRunning(njob):
-  '''Gets list of running subjobs'''
-  return jobs(njob).subjobs.select(status='running')
+def get_failed(njob):
+  """Gets list of failed subjobs"""
+  return jobs(njob).subjobs.select(status="failed")
 
-def getCompleting(njob):
-  '''Gets list of completing subjobs'''
-  return jobs(njob).subjobs.select(status='completing')
 
-def getKilled(njob):
-  '''Gets list of killed subjobs'''
-  return jobs(njob).subjobs.select(status='killed')
+def get_completed(njob):
+  """Gets list of completed subjobs"""
+  return jobs(njob).subjobs.select(status="completed")
 
-def getSubmitted(njob):
-  '''Gets list of submitted subjobs'''
-  return jobs(njob).subjobs.select(status='submitted')
 
-def getLimbo(njob):
-  '''Gets list of subjobs that are not 'failed' or 'completed' '''
-  joblist = []
-  for sj in jobs(njob).subjobs:
-    if (sj.status is not 'failed') and (sj.status is not 'completed'):
-      joblist.append(sj)
-  return joblist
+def get_running(njob):
+  """Gets list of running subjobs"""
+  return jobs(njob).subjobs.select(status="running")
 
-  #joblist=[jobs(njob).subjobs.select(status='submitting')]
-  #for stat in ['submitted','running','completing','killed']:
-  #  each=jobs(njob).subjobs.select(status=stat)
-  #  print each
-  #  joblist+=[each]
-  #return joblist
 
-def percentageComplete(njob):
-  '''Calculates completion  %'''
-  ncomp=float(len(getCompleted(njob)))
+def get_completing(njob):
+  """Gets list of completing subjobs"""
+  return jobs(njob).subjobs.select(status="completing")
+
+
+def get_killed(njob):
+  """Gets list of killed subjobs"""
+  return jobs(njob).subjobs.select(status="killed")
+
+
+def get_submitted(njob):
+  """Gets list of submitted subjobs"""
+  return jobs(njob).subjobs.select(status="submitted")
+
+
+def get_new(njob):
+  """Gets list of failed subjobs"""
+  return jobs(njob).subjobs.select(status="new")
+
+
+def percentage_complete(njob):
+  """Calculates completion  %"""
+  ncomp=float(len(get_completed(njob)))
   ntotl=float(len(jobs(njob).subjobs))
   return 100*ncomp/ntotl
 
-def failureRate(njob):
-  '''Calculates failure rate %'''
-  nfail=float(len(getFailed(njob)))
-  ncomp=float(len(getCompleted(njob)))
-  return 100*nfail/ncomp
 
-def makeReport(njob):
-  '''Makes a report of the number of jobs in each status'''
-  print 'Job '+str(njob)+':'
-  print 'Number of subjobs:'
-  print '   completed  %d' %len(getCompleted(njob))
-  print '   completing %d' %len(getCompleting(njob))
-  print '   running    %d' %len(getRunning(njob))
-  print '   failed     %d' %len(getFailed(njob))
-  print '   submitted  %d' %len(getSubmitted(njob))
-  print '   killed     %d' %len(getKilled(njob))
-  print '   TOTAL      %d' %len(jobs(njob).subjobs)
-  print 'Complete      %.2f %%' %percentageComplete(njob)
-  print 'Failure rate  %.2f %%' %failureRate(njob)
+def failure_ratio(njob):
+  """Failed : completed"""
+  nfail = float(len(get_failed(njob)))
+  ncomp = len(get_completed(njob))
+  if ncomp:
+    ncomp = float(ncomp)
+    return 100 * nfail/ncomp
+  else:
+    return -1
+
+
+def percentage_failed(njob):
+  """Calculates failed %"""
+  nfail = float(len(get_failed(njob)))
+  ntotl = float(len(jobs(njob).subjobs))
+  return 100 * nfail/ntotl
+
+
+def make_report(njob):
+  """Make a report of the number of jobs in each status"""
+  print "Job "+str(njob)+":"
+  print "Number of subjobs:"
+  print "   completed  %d" % len(get_completed(njob))
+  print "   completing %d" % len(get_completing(njob))
+  print "   running    %d" % len(get_running(njob))
+  print "   failed     %d" % len(get_failed(njob))
+  print "   submitted  %d" % len(get_submitted(njob))
+  print "   killed     %d" % len(get_killed(njob))
+  print "   TOTAL      %d" % len(jobs(njob).subjobs)
+  print "Complete      %.2f %%" % percentage_complete(njob)
+  print "Failed        %.2f %%" % percentage_failed(njob)
+  print "Failure ratio %.2f %%" % failure_ratio(njob)
   print 
   return
 
 
-def resubmitFailedSubjobs(njob):
-  '''Resubmits all failed subjobs'''
-  print 'Job '+str(njob)+': Resubmitting '+\
-        str(len(jobs(njob).subjobs.select(status='failed')))+' failed subjobs.'
-  jobs(njob).subjobs.select(status='failed').resubmit()
+def resubmit_failed(njob):
+  """Resubmits all failed subjobs"""
+  print "Job "+str(njob)+": Resubmitting "+\
+        str(len(jobs(njob).subjobs.select(status="failed")))+" failed subjobs."
+  jobs(njob).subjobs.select(status="failed").resubmit()
   return 0
 
-def downloadCompletedSubjobs(njob):
-  '''Downloads outputdata for all completed subjobs'''
+
+def reset_if_stuck(njob, nhours = 4):
+  """Resets the (Dirac) backend if the job is stuck in completing"""
+  print "Job %i:" % njob,
+  print "There are %i subjobs 'completing'" % len(get_completing(njob))
+  nskipped, nreset = 0,0
+  for sj in get_completing(njob):
+    t = sj.time.completing()
+    if (abs(t.hour - t.now().hour) >= nhours):
+      sj.backend.reset()
+      nreset +=1
+    else:
+      nskipped += 1
+  print "Reset the backend of %i subjobs." % nreset
+  print "Skipped %i since they have been completing for < %i hrs." % (nskipped, nhours)
+
+
+def download_completed(njob):
+  """Downloads outputdata for all completed subjobs"""
   import os
-  print 'Job ' + str(njob) + ': There are ' + str(len(getCompleted(njob))) +\
-        ' completed Jobs.'
+  print "Job " + str(njob) + ": There are " + str(len(get_completed(njob))) +\
+        " completed Jobs."
 
   for i in range(len(jobs(njob).subjobs)):
     sj = jobs(njob).subjobs(i)
 
     # skip incomplete
-    if (sj.status is not 'completed'): continue 
+    if (sj.status is not "completed"): continue 
 
-    # if file doesn't already exist
+    # if file doesn"t already exist
     if ( not os.path.exists(sj.outputdir+sj.outputdata.files[0]) ) : 
 
       # then download it
-      print 'job %d, subjob %d data is downloading.' %(njob,i)
+      print "job %d, subjob %d data is downloading." %(njob,i)
       sj.backend.getOutputData()
 
   return 0
 
 
-
 # makes a report, resubmits fails, checks for jobs stuck in completing 
 # then downloads all completed subjobs
-def doEverything(njob):
-  '''Does the lot: resubmits fails, checks for stuck and downloads.
-     Will even buy you dinner. (c) Sam H esq.'''
-  import os
-
-  # print a report of the status of subjobs
-  makeReport(njob)
-
-  # resubmit all failed
-  resubmitSubjobs(njob)
- 
-  # backend reset
-  print 'Job '+strjob+': Checking for subjobs stuck completing.' 
-  for i in jobs(njob).subjobs.select(status='completing'):
-    t = i.time.completing()
-    if (t.day is t.now().day):
-      if (abs(t.hour - t.now().hour) >= 2):
-        i.force_status('failed')
-        i.resubmit()
-    elif (abs(t.hour - t.now().hour+24) >=2 ):
-      i.force_status('failed')
-      i.resubmit()
-
-  # get completed jobs' outputdata
-  downloadCompletedSubjobs(njob)
-
+def do_everything(njob):
+  """Resubmit fails, check for stuck and downloads completed."""
+  make_report(njob)
+  resubmit_failed(njob)
+  reset_if_stuck(njob)
+  download_completed(njob)
   return 0
 
 
 # process string copied from online bookkeeping
-def strFromWeb( string ):
+def bkquery_from_string(string_from_web):
     """Parse a string from web bookkeeping gui into the form for BKQuery."""
-    rd = string.find('LHCb')
-    mc = string.find('MC')
+    s  = string_from_web
+    rd = s.find("LHCb")
+    mc = s.find("MC")
     if rd != -1: 
-        string = '%s'%string[rd:]
+        s = "%s" % s[rd:]
     elif mc != -1: 
-        string = '%s'%string[mc:]
+        s = "%s" % s[mc:]
     else:
-        print 'Cannot find LHCb or MC in the string'
-    string = string.replace(' ','')
-    string = string.replace('RealData','Real Data')
-    if string.find('(') != -1: 
-        remove = string[string.find('('): string.find(')')+1]
-        string = string.replace(remove,'')
-    print string
-    string = string.split('/')
-    print string
-    longno = [ x for x in string if x.isdigit() ][0]
-    string = [ x for x in string if not x.isdigit() ]
-    print string
-    string.insert(-1,longno)
-    string = '/%s'%'/'.join(string)
-    return string
+        print "Cannot find LHCb or MC in the string"
+    s = s.replace(" ","")
+    s = s.replace("RealData","Real Data")
+    if s.find("(") != -1: 
+        remove = s[s.find("("): s.find(")")+1]
+        s = s.replace(remove,"")
+    print s
+    s = s.split("/")
+    print s
+    longno = [ x for x in s if x.isdigit() ][0]
+    s = [ x for x in s if not x.isdigit() ]
+    print s
+    s.insert(-1,longno)
+    s = "/%s"%"/".join(s)
+    return s
 
 
-# get an LHCbDataset of both magnet polarities from a BKQuery-ready string
-def dsFromStr( string ):
-    """Perform BKQuery on a srting and also get other mag polarity."""
+def dataset_from_string(string_from_web, get_other_mag = True):
+    """BKQueries on a string path from web, can get other mag polarity."""
+    s = bkquery_from_string(string_from_web)
+
+    # figure out which mag polarity and get the opposite
     strings = []
-    if string.find('Down') != -1:
-        print "dsFromStr(): You've given a mag UP sample, now getting mag DOWN"
-        strings.append(string)
-        strings.append(string.replace('Down','Up'))
-    elif string.find('Up') != -1:
-        print "dsFromStr(): You've given a mag DOWN sample, now getting mag UP"
-        strings.append(string)
-        strings.append(string.replace('Up','Down'))
+    if get_other_mag and (s.find("Down") != -1):
+        print "Given mag UP string, now getting mag DOWN"
+        strings.append(s)
+        strings.append(s.replace("Down","Up"))
+    elif get_other_mag and (s.find("Up") != -1):
+        print "Given a mag DOWN string, now getting mag UP"
+        strings.append(s)
+        strings.append(s.replace("Up","Down"))
+    elif not get_other_mag:
+        strings.append(s)
     else:
-        strings.append(string)
+        print "ERROR: Can't find mag polarity in the string."
+        return -1
+
+    # now have the strings, make the dataset
     ds = LHCbDataset()
     for s in strings:
-        bk = BKQuery( s )
+        bk = BKQuery(s)
         dd = bk.getDataset()
         ds.extend(dd)
     return ds
+
 
 print "\033[1mYou've got Sam's .ganga.py\033[0m with own functions."
