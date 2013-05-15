@@ -11,8 +11,10 @@ endfunction
 function! SyntaxCheckers_python_pylint_GetLocList()
     let makeprg = syntastic#makeprg#build({
                 \ 'exe': 'pylint',
-                \ 'args': ' -f parseable -r n -i y',
+                \ 'args': ' -f parseable -r n -i y --disable=W0311',
                 \ 'subchecker': 'pylint' })
+    " I like 2 space indentations therefore disable W0311 which moans about this
+
     let errorformat = '%f:%l:%m,%Z,%-GNo config %m'
 
     let loclist=SyntasticMake({ 'makeprg': makeprg, 'errorformat': errorformat })

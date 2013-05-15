@@ -2,13 +2,13 @@
 
 " make bkg different colour past 80 chars
 " encourage good practice in C++ and python
-"highlight rightMargin term=bold ctermfg=magenta guifg=blue ctermbg=red
-"match rightMargin /.\%>80v/
+highlight rightMargin term=bold ctermfg=magenta guifg=blue ctermbg=red
+match rightMargin /.\%>80v/
 
 " shortcut to add a docstring
 " if you don't put docstrings in your functions then you deserve a slow and painfull death
-imap <leader>" """"""<Esc>2hi
-map <leader>" i""""""<Esc>2hi
+imap <leader>"! """"""<Esc>2hi
+map <leader>"! i""""""<Esc>2hi
 
 " shortcut to add a main
 imap ''nm if<Space>__name__<Space>==<Space>"__main__":<CR>
