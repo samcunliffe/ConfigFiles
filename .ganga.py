@@ -175,11 +175,11 @@ def dataset_from_string(string_from_web, get_other_mag = True):
     # figure out which mag polarity and get the opposite
     strings = []
     if get_other_mag and (s.find("Down") != -1):
-        print "Given mag UP string, now getting mag DOWN"
+        print "Given mag DOWN string, now getting mag UP"
         strings.append(s)
         strings.append(s.replace("Down","Up"))
     elif get_other_mag and (s.find("Up") != -1):
-        print "Given a mag DOWN string, now getting mag UP"
+        print "Given a mag UP string, now getting mag DOWN"
         strings.append(s)
         strings.append(s.replace("Up","Down"))
     elif not get_other_mag:
