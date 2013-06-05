@@ -88,6 +88,6 @@ hi def link rootColor Constant
 hi def link rooType   Type
 hi def link strType   Type
 hi def link vecType   Type
-hi def link rooConst  Constant
+hi def link rootConst Constant
 
 
