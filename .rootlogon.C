@@ -5,7 +5,6 @@
   
   gROOT->ProcessLine(".x ~/.lhcbStyle.C");
 
-
 }
 
 

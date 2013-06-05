@@ -1,3 +1,4 @@
+
 call pathogen#infect()
 
 " Use Vim settings, rather then Vi settings (much better!).
@@ -28,6 +29,7 @@ set expandtab     " please make them *actual* spaces
 " auto indent
 set shiftwidth=2  " ai spacing
 set autoindent    " ai on
+set smartindent   " please indent correctly into finctions etc
 
 " make the status bar at the bottom better
 set nocompatible ruler laststatus=2 showcmd showmode number
@@ -35,6 +37,9 @@ set nocompatible ruler laststatus=2 showcmd showmode number
 " put a dollar sign at the end of what's 
 " being changed/replaced
 set cpoptions+=$
+
+" remembers previous search pattern... i think
+set hlsearch
 
 " a nice one-line menu at the bottom border
 " for files to vsp or whatever
@@ -54,6 +59,7 @@ highlight Folded guifg=magenta   guibg=darkgreen
 " only want navajo-night if not in terminal
 if v:progname =~? "gvim"
   colorscheme navajo-night
+  let g:syntastic_c_include_dirs = [ '../include', 'include', '/afs/cern.ch/sw/lcg/app/releases/ROOT/5.34.05/x86_64-slc5-gcc46-opt/root/include/' ]
 endif
 
 """"""""""""""""""""
@@ -98,7 +104,6 @@ let python_highlight_numbers = 1
 let python_highlight_builtins = 1
 let python_highlight_exceptions = 1
 
-let g:syntastic_c_include_dirs = [ '../include', 'include', '/afs/cern.ch/sw/lcg/app/releases/ROOT/5.34.05/x86_64-slc5-gcc46-opt/root/include/' ]
 
 """""""""""""""""""""""""""
 " Load my own defined maps 
@@ -118,4 +123,7 @@ autocmd FileType c source $HOME/.vim/cmaps.vim
 autocmd FileType C source $HOME/.vim/cmaps.vim
 autocmd FileType hpp source $HOME/.vim/cmaps.vim
 autocmd FileType h source $HOME/.vim/cmaps.vim
+
+" tabs not spaces when using makefile
+autocmd BufNewFile,BufRead Makefile set noexpandtab
 
