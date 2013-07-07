@@ -1,4 +1,7 @@
 
+" reconfigure tabs for python
+set softtabstop=4 " four spaces width per tab
+
 
 " make bkg different colour past 80 chars
 " encourage good practice in C++ and python
