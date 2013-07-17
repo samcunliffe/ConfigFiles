@@ -157,12 +157,12 @@ def bkquery_from_string(string_from_web):
     if s.find("(") != -1: 
         remove = s[s.find("("): s.find(")")+1]
         s = s.replace(remove,"")
-    print s
+    #print s
     s = s.split("/")
-    print s
+    #print s
     longno = [ x for x in s if x.isdigit() ][0]
     s = [ x for x in s if not x.isdigit() ]
-    print s
+    #print s
     s.insert(-1,longno)
     s = "/%s"%"/".join(s)
     return s
@@ -175,11 +175,11 @@ def dataset_from_string(string_from_web, get_other_mag = True):
     # figure out which mag polarity and get the opposite
     strings = []
     if get_other_mag and (s.find("Down") != -1):
-        print "Given mag UP string, now getting mag DOWN"
+        print "Given mag DOWN string, now getting mag UP"
         strings.append(s)
         strings.append(s.replace("Down","Up"))
     elif get_other_mag and (s.find("Up") != -1):
-        print "Given a mag DOWN string, now getting mag UP"
+        print "Given a mag UP string, now getting mag DOWN"
         strings.append(s)
         strings.append(s.replace("Up","Down"))
     elif not get_other_mag:
@@ -191,6 +191,8 @@ def dataset_from_string(string_from_web, get_other_mag = True):
     # now have the strings, make the dataset
     ds = LHCbDataset()
     for s in strings:
+        print "~~~~~~~~~~"
+        print s
         bk = BKQuery(s)
         dd = bk.getDataset()
         ds.extend(dd)
