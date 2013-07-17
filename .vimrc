@@ -1,15 +1,26 @@
 
-call pathogen#infect()
 
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Settings for pathogen for easy install of plugins "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""
-"call pathogen#infect()
-"call pathogen.infect()
+
+"""""""""""""""""""""
+" Settings for gvim "
+"""""""""""""""""""""
+
+if v:progname =~? "gvim"
+
+  " turn on and set up syntastic
+  call pathogen#infect()
+  set helptags
+  let g:syntastic_c_include_dirs = [ '../include', 'include', '/afs/cern.ch/sw/lcg/app/releases/ROOT/5.34.05/x86_64-slc5-gcc46-opt/root/include/' ]
+
+  " only want navajo-night if not in terminal
+  colorscheme navajo-night
+
+endif
+
 
 
 """"""""""""""""""""""""""""""
@@ -56,11 +67,6 @@ highlight Folded guifg=magenta   guibg=darkgreen
 "ctermbg=dar
 "#522719
 
-" only want navajo-night if not in terminal
-if v:progname =~? "gvim"
-  colorscheme navajo-night
-  let g:syntastic_c_include_dirs = [ '../include', 'include', '/afs/cern.ch/sw/lcg/app/releases/ROOT/5.34.05/x86_64-slc5-gcc46-opt/root/include/' ]
-endif
 
 """"""""""""""""""""
 " useful shortcuts "
@@ -115,6 +121,7 @@ autocmd BufNewFile,BufRead *.tex source $HOME/.vim/texmaps.vim
 
 " python
 autocmd FileType python source $HOME/.vim/pymaps.vim
+autocmd FileType python source $HOME/.vim/python.vim
 
 " c/c++ with root
 autocmd FileType cpp source $HOME/.vim/cmaps.vim
