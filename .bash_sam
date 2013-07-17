@@ -36,6 +36,9 @@ alias ncores='grep -c processor /proc/cpuinfo'
 # how much ram
 alias totram='/proc/meminfo | grep "memtotal"'
 
+# how much memory do i use
+alias me='top -u `whoami`'
+
 ######################
 ## Ultra-short cuts ##
 ######################

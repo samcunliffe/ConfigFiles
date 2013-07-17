@@ -22,7 +22,6 @@ if v:progname =~? "gvim"
 endif
 
 
-
 """"""""""""""""""""""""""""""
 " Misc Settings that I like "
 """"""""""""""""""""""""""""""
