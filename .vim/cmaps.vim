@@ -67,21 +67,20 @@ syn keyword rootColor kRed kYellow kOrange kBlue kPink kMagenta
 syn keyword rootColor kViolet kBlue kAzure kCyan kTeal kGreen kSpring
 syn keyword rootConst kTRUE kFALSE
 
-syn keyword rooType   RooAbsPdf RooAbsReal RooFitResult
+syn keyword rooType   RooAbsPdf RooAbsReal RooAbsArg
+syn keyword rooType   RooFitResult
 syn keyword rooType   RooArgList RooArgSet
 syn keyword rooType   RooCategory RooWorkspace
-syn keyword rooType   RooPlot RooDataSet RooRealVar
+syn keyword rooType   RooPlot RooDataSet
+syn keyword rooType   RooRealVar RooFormulaVar
 
 " all the pdfs under the sun
+syn keyword rooType   RooSimultaneous
 syn keyword rooType   RooAddPdf RooSimPdf 
-syn keyword rooType   RooRealVar RooFormulaVar
 syn keyword rooType   RooGaussian RooExponential 
-syn keyword rooType   RooKeysPdf RooSimultaneous
-syn keyword rooType   RooCategory RooArgList RooWorkspace
-syn keyword rooType   RooAddPdf RooLandau RooCBShape
+syn keyword rooType   RooKeysPdf RooHistPdf
+syn keyword rooType   RooLandau RooCBShape
 syn keyword rooType   RooChebychev
-syn keyword rooType   RooFitResult
-
 
 hi def link rootType  Type
 hi def link rootColor Constant
