@@ -1,6 +1,17 @@
 
-" reconfigure tabs for python
-set softtabstop=4 " four spaces width per tab
+"""""""""""""""""""""""""""""
+" configure tabs for python "
+"""""""""""""""""""""""""""""
+
+" tab
+set softtabstop=4 " two spaces width per tab
+set expandtab     " please make them *actual* spaces
+
+" auto indent
+set shiftwidth=4  " ai spacing
+set autoindent    " ai on
+set smartindent   " please indent correctly into finctions etc
+
 
 
 " make bkg different colour past 80 chars

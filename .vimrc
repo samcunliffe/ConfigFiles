@@ -32,15 +32,6 @@ set visualbell
 " turn line numbers on
 set number
 
-" tab
-set softtabstop=2 " two spaces width per tab
-set expandtab     " please make them *actual* spaces
-
-" auto indent
-set shiftwidth=2  " ai spacing
-set autoindent    " ai on
-set smartindent   " please indent correctly into finctions etc
-
 " make the status bar at the bottom better
 set nocompatible ruler laststatus=2 showcmd showmode number
 
@@ -108,6 +99,7 @@ map <leader>ss :setlocal spell!<cr>
 let python_highlight_numbers = 1
 let python_highlight_builtins = 1
 let python_highlight_exceptions = 1
+filetype plugin indent on " sort out python indenting by looking in indent/python.vim
 
 
 """""""""""""""""""""""""""
@@ -120,7 +112,7 @@ autocmd BufNewFile,BufRead *.tex source $HOME/.vim/texmaps.vim
 
 " python
 autocmd FileType python source $HOME/.vim/pymaps.vim
-autocmd FileType python source $HOME/.vim/python.vim
+"autocmd FileType python source $HOME/.vim/python.vim
 
 " c/c++ with root
 autocmd FileType cpp source $HOME/.vim/cmaps.vim

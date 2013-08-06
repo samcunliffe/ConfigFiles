@@ -1,4 +1,19 @@
 
+
+"""""""""""""""""""""""""""""
+" configure tabs for python "
+"""""""""""""""""""""""""""""
+
+" tab
+set softtabstop=4 " two spaces width per tab
+set expandtab     " please make them *actual* spaces
+
+" auto indent
+set shiftwidth=4  " ai spacing
+set autoindent    " ai on
+set smartindent   " please indent correctly into finctions etc
+
+
 " make bkg different colour past 80 chars
 " encourage good practice in C++ and python
 highlight rightMargin term=bold ctermfg=magenta ctermbg=red 
@@ -30,6 +45,9 @@ imap ''el else{<CR>}<Esc>O<C-T>
 imap ''ma int main(int argc, char *argv[])<CR>{<CR>}<Esc>Oreturn 0;<Esc>O
 imap ''sw switch(){<CR>case :<CR>default:<CR>}<Esc>kO<C-T>break;<Esc>2khi
 imap ''co std::cout << "" << std::endl;<Esc>14hi
+imap ''ce std::cerr << "" << std::endl;<Esc>14hi
+imap ''CO cout << "" << endl;<Esc>9hi
+imap ''CE cerr << "" << endl;<Esc>9hi
 
 "imap <leader>/ <Esc>I//
 "imap ''* /*<Esc>O*/<Esc>h35i*<Esc>k35i*<Esc>2o<Esc>O
