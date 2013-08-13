@@ -99,7 +99,6 @@ map <leader>ss :setlocal spell!<cr>
 let python_highlight_numbers = 1
 let python_highlight_builtins = 1
 let python_highlight_exceptions = 1
-filetype plugin indent on " sort out python indenting by looking in indent/python.vim
 
 
 """""""""""""""""""""""""""
@@ -124,4 +123,5 @@ autocmd FileType h source $HOME/.vim/cmaps.vim
 
 " tabs not spaces when using makefile
 autocmd BufNewFile,BufRead Makefile set noexpandtab
+filetype plugin indent on " sort out python indenting by looking in indent/python.vim
 

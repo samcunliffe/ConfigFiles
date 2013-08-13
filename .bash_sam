@@ -94,6 +94,18 @@ extract () {
   fi
 }
 
+# remake an executable
+remake () {
+  if [ -f $1.cc ]; then
+    touch $1.cc
+    make $1
+  elif [ -f $1.cpp ]; then
+    touch $1.cpp
+    make $1
+  else
+    echo "can't find the source code for '$1' "
+  fi
+}
 #alias geeknote='python $HOME/Software/Evernote/geeknote/geeknote.py'
 
 ###############

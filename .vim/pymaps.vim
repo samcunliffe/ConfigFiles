@@ -9,8 +9,8 @@ set expandtab     " please make them *actual* spaces
 
 " auto indent
 set shiftwidth=4  " ai spacing
-set autoindent    " ai on
-set smartindent   " please indent correctly into finctions etc
+"set autoindent    " ai on
+"set smartindent   " please indent correctly into finctions etc
 
 
 
