@@ -47,8 +47,27 @@ alias me='top -u `whoami`'
 alias v='vim'
 alias g='gvim'
 alias p='python'
-alias e='evince' # kpdf is unreasonably ugly
-alias r='root -l'
+alias ipy='ipython' # ip conflicts with an actual bash prog
+alias e='evince'    # kpdf is unreasonably ugly
+alias r='root -l'   # never want the splash screen
+
+# open common filetypes with one command
+o () {
+  if [ -f $1 ] ; then
+    case $1 in
+      *.pdf)   evince $1  ;;
+      *.eps)   evince $1  ;;
+      *.ps)    evince $1  ;;
+      *.png)   display $1 ;;
+      *.jpg)   display $1 ;;
+      *.root)  root -l $1 ;;
+    esac
+  else
+    echo "'$1' is not a valid file!"
+  fi
+}
+
+
 
 ##################
 ## ROOT Shizzle ##
@@ -107,6 +126,11 @@ remake () {
   fi
 }
 #alias geeknote='python $HOME/Software/Evernote/geeknote/geeknote.py'
+
+# if colorsvn exists then use it
+if hash colorsvn 2>/dev/null; then
+	alias svn="colorsvn"
+fi
 
 ###############
 ## Shortcuts ##
