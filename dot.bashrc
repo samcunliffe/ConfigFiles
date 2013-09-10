@@ -5,17 +5,20 @@
 ###################
 
 # Source global definitions
-if [ -f /etc/bashrc ]; then
+if [ -f /etc/bashrc ]
+then
 	. /etc/bashrc
 fi
 
 # Source my aliases and a couple of functions
-if [ -f ~/.bash/aliases ]; then
+if [ -f ~/.bash/aliases ]
+then
 	. ~/.bash/aliases
 fi
 
 # environmental variables for the names of colours
-if [ -f ~/.bash/colours ]; then
+if [ -f ~/.bash/colours ]
+then
 	. ~/.bash/colours
 fi
 
@@ -26,13 +29,18 @@ then
 fi
 
 # sourch lhcb specific aliases
-if [ -f ~/.bash/lhcb ]; then
-	. ~/.bash/lhcb
+if [[ `hostname` == "*.cern.ch" ]] || [[ `hostname` == "*.ic.ac.uk" ]]
+then
+	if [ -f ~/.bash/lhcb ]
+	then
+		. ~/.bash/lhcb
+	fi
 fi
 
 # sourch definitions relevent to this machine
 # choose color for the prompt
-if [ -f ~/.bash/local ]; then
+if [ -f ~/.bash/local ]
+then
 	. ~/.bash/local
 fi
 
