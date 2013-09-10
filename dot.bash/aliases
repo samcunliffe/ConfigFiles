@@ -1,0 +1,174 @@
+
+#############
+## Aliases ##
+#############
+
+# safety
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+# the 'ls' family 
+alias ll="ls -lh"
+alias ls='ls -hF --color' # add colors for filetype recognition
+alias la='ls -Alh'        # show hidden files
+alias lx='ls -lXBh'       # sort by extension
+alias lk='ls -lSrh'       # sort by size, biggest last
+alias lc='ls -ltcrh'      # sort by and show change time, most recent last
+alias lu='ls -lturh'      # sort by and show access time, most recent last
+alias lt='ls -ltrh'       # sort by date, most recent last
+alias lm='ls -alh |more'  # pipe through 'more'
+alias lr='ls -lRh'        # recursive ls
+alias tree='tree -Csu'    # nice alternative to 'recursive ls'
+alias l='ls -CFh'
+alias cl="clear && ls"
+alias cpl="clear && pwd && ls"
+
+# go up directory
+alias ..='cd ..'
+
+# list top 10 biggest files in a place
+alias bigfiles='du -a . | sort -nr | head'
+
+# how many processors
+alias ncores='grep -c processor /proc/cpuinfo'
+
+# how much ram
+alias totram='/proc/meminfo | grep "memtotal"'
+
+# how much memory do i use
+alias me='top -u `whoami`'
+
+# git
+alias gs='git status' 
+alias ga='git add'
+alias gu='git add -u'
+
+######################
+## Ultra-short cuts ##
+######################
+
+# use with care, not to everybody's taste
+alias v='vim'
+alias g='gvim'
+alias p='python'
+alias ipy='ipython' # ip conflicts with an actual bash prog
+alias e='evince'    # kpdf is unreasonably ugly
+alias r='root -l'   # never want the splash screen
+
+# open common filetypes with one command
+o () {
+  if [ -f $1 ] ; then
+    case $1 in
+      *.pdf)   evince $1  ;;
+      *.eps)   evince $1  ;;
+      *.ps)    evince $1  ;;
+      *.png)   display $1 ;;
+      *.jpg)   display $1 ;;
+      *.jpeg)   display $1 ;;
+      *.root)  root -l $1 ;;
+    esac
+  else
+    echo "'$1' is not a valid file!"
+  fi
+}
+
+
+
+##################
+## ROOT Shizzle ##
+##################
+
+# Stop Root's anoying splash screen
+alias root='root -l'
+
+# root with a TBrowser straight away
+alias rtb='root -l $HOME/Scripts/newTBrowser.C'
+
+# invoke g++ with root cflags bells and whistles
+alias gr='g++ `root-config --cflags --libs` '
+alias grrf='g++ `root-config --cflags --libs` -lRooFit -lRooFitCore   '
+alias grrs='g++ `root-config --cflags --libs` -lRooFit -lRooFitCore -lRooStats -lFoam -lMinuit '
+
+#############
+## Scripts ##
+#############
+
+# Sammy H's particles.sh
+alias particles='. $HOME/Scripts/particles.sh'
+
+# extract basically every type of archive
+extract () {
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xvjf $1    ;;
+      *.tar.gz)    tar xvzf $1    ;;
+      *.bz2)       bunzip2 $1     ;;
+      *.rar)       rar x $1       ;;
+      *.gz)        gunzip $1      ;;
+      *.tar)       tar xvf $1     ;;
+      *.tbz2)      tar xvjf $1    ;;
+      *.tgz)       tar xvzf $1    ;;
+      *.zip)       unzip $1       ;;
+      *.Z)         uncompress $1  ;;
+      *.7z)        7z x $1        ;;
+      *)           echo "don't know how to extract '$1'..." ;;
+    esac
+  else
+    echo "'$1' is not a valid file!"
+  fi
+}
+
+# remake an executable
+remake () {
+  if [ -f $1.cc ]; then
+    touch $1.cc
+    make $1
+  elif [ -f $1.cpp ]; then
+    touch $1.cpp
+    make $1
+  elif [ -f src/$1.cpp ]; then
+    touch src/$1.cpp
+    make $1
+  elif [ -f main/$1.cpp ]; then
+    touch main/$1.cpp
+    make $1
+  else
+    echo "can't find the source code for '$1' "
+  fi
+}
+#alias geeknote='python $HOME/Software/Evernote/geeknote/geeknote.py'
+
+# if colorsvn exists then use it
+if hash colorsvn 2>/dev/null; then
+	alias svn="colorsvn"
+fi
+
+###############
+## Shortcuts ##
+###############
+
+# get tube map from www
+alias tubemap='evince http://www.tfl.gov.uk/assets/downloads/standard-tube-map.pdf'
+alias tpgmap='evince http://www.tpg.ch/documents/10162/139522/Plan+peripherique+-+mai+2012'
+alias ybus='evince http://www.tpg.ch/html/pdf/Y/YAllerbrun01.pdf & evince http://www.tpg.ch/html/pdf/Y/YRetourcern02.pdf'
+
+# go to pdg
+alias pdg='firefox http://pdglive.lbl.gov/listings1.brl?quickin=Y'
+
+# there really should be a man page for this
+alias man_grammar='firefox http://www.bristol.ac.uk/arts/exercises/grammar/grammar_tutorial/index.htm'
+
+# sam h
+alias jabberwocky='echo "vorpal swords at the ready"'
+
+##################
+## Environment ###
+##################
+
+export VISUAL=vim
+export EDITOR=vim
+export SVN_EDITOR=vim
+
+# append my personal python packages to the pythonpath
+export PYTHONPATH=$HOME/Python/:$PYTHONPATH
