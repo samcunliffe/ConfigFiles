@@ -1,4 +1,13 @@
 
+" tab
+set softtabstop=2 " two spaces width per tab
+set expandtab     " please make them *actual* spaces
+
+" auto indent
+set shiftwidth=2  " ai spacing
+set autoindent    " ai on
+set smartindent   " please indent correctly into finctions etc
+
 
 " compile pdflatex on main.tex
 map <F10> :w<CR>:!pdflatex main.tex<CR>
