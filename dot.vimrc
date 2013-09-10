@@ -107,19 +107,19 @@ let python_highlight_exceptions = 1
 """""""""""""""""""""""""""
 
 " latex
-autocmd BufNewFile,BufRead *.tex source $HOME/.vim/texmaps.vim
+autocmd BufNewFile,BufRead *.tex source $HOME/.vim/maps/tex.vim
 
 " python
-autocmd FileType python source $HOME/.vim/pymaps.vim
+autocmd FileType python source $HOME/.vim/maps/python.vim
 "autocmd FileType python source $HOME/.vim/python.vim
 
 " c/c++ with root
-autocmd FileType cpp source $HOME/.vim/cmaps.vim
-autocmd FileType cc source $HOME/.vim/cmaps.vim
-autocmd FileType c source $HOME/.vim/cmaps.vim
-autocmd FileType C source $HOME/.vim/cmaps.vim
-autocmd FileType hpp source $HOME/.vim/cmaps.vim
-autocmd FileType h source $HOME/.vim/cmaps.vim
+autocmd FileType cpp source $HOME/.vim/maps/cpp.vim
+autocmd FileType cc source $HOME/.vim/maps/cpp.vim
+autocmd FileType c source $HOME/.vim/maps/cpp.vim
+autocmd FileType C source $HOME/.vim/maps/cpp.vim
+autocmd FileType hpp source $HOME/.vim/maps/cpp.vim
+autocmd FileType h source $HOME/.vim/maps/cpp.vim
 
 " tabs not spaces when using makefile
 autocmd BufNewFile,BufRead Makefile set noexpandtab
