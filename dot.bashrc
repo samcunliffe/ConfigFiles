@@ -29,7 +29,7 @@ then
 fi
 
 # sourch lhcb specific aliases
-if [[ `hostname` == "*.cern.ch" ]] || [[ `hostname` == "*.ic.ac.uk" ]]
+if [[ `hostname -d` == "cern.ch" ]] || [[ `hostname -d` == "hep.ph.ic.ac.uk" ]]
 then
 	if [ -f ~/.bash/lhcb ]
 	then
