@@ -1,8 +1,4 @@
-
-###################
-#  Sam's .bashrc  #
-#   April 2013    #
-###################
+# .bashrc
 
 # Source global definitions
 if [ -f /etc/bashrc ]
@@ -23,7 +19,7 @@ then
 fi
 
 # source ubuntu specific aliases
-if [[ `lsb_release -i` == "Ubuntu" ]] && [ -f ~/.bash/ubuntu ]
+if [[ `lsb_release -is` == "Ubuntu" ]] && [ -f ~/.bash/ubuntu ]
 then
 	. ~/.bash/ubuntu
 fi
