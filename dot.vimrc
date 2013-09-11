@@ -4,16 +4,15 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+" Loading pathogen from bundle folder
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+call pathogen#infect()
 
 """""""""""""""""""""
 " Settings for gvim "
 """""""""""""""""""""
 
 if v:progname =~? "gvim"
-
-  " turn on and set up syntastic
-  call pathogen#infect()
-  set helptags
   let g:syntastic_c_include_dirs = [ '../include', 'include', '/afs/cern.ch/sw/lcg/app/releases/ROOT/5.34.05/x86_64-slc5-gcc46-opt/root/include/' ]
 
   " only want navajo-night if not in terminal
@@ -58,18 +57,28 @@ highlight Folded guifg=magenta   guibg=darkgreen
 "#522719
 
 
-""""""""""""""""""""
-" useful shortcuts "
-""""""""""""""""""""
+"""""""""""""""""""""
+" useful remappings "
+"""""""""""""""""""""
 
 " nb. do not remap <F1> !!
 
 " move to next split using ctrl+arrowkey
 "map <F2> <C-W>w
-nmap <silent> <C-Up> :wincmd k<CR>
-nmap <silent> <C-Down> :wincmd j<CR>
-nmap <silent> <C-Left> :wincmd h<CR>
-nmap <silent> <C-Right> :wincmd l<CR>
+"nmap <silent> <C-Up> :wincmd k<CR>
+"nmap <silent> <C-Down> :wincmd j<CR>
+"nmap <silent> <C-Left> :wincmd h<CR>
+"nmap <silent> <C-Right> :wincmd l<CR>
+
+" Disable arrow keys
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
 
 
 """"""""""""""""""""""""
@@ -94,7 +103,7 @@ map <leader>ss :setlocal spell!<cr>
 " Python stuff
 """""""""""""""
 
-" proper highlighting: doesn't work in pymaps.vim
+" proper highlighting: doesn't work in maps/python.vim
 " for some reason
 let python_highlight_numbers = 1
 let python_highlight_builtins = 1
