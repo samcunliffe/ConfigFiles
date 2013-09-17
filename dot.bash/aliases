@@ -30,19 +30,33 @@ alias ..='cd ..'
 # list top 10 biggest files in a place
 alias bigfiles='du -a . | sort -nr | head'
 
-# how many processors
+# machine information
 alias ncores='grep -c processor /proc/cpuinfo'
-
-# how much ram
 alias totram='/proc/meminfo | grep "memtotal"'
-
-# how much memory do i use
 alias me='top -u `whoami`'
 
 # git
 alias gs='git status' 
 alias ga='git add'
 alias gu='git add -u'
+
+# read todo list
+todo () {
+  if [ -f $HOME/TODO ] ; then
+    cat $HOME/TODO
+  else
+    echo "Cannot find TODO list file"
+  fi
+}
+
+wltu () {
+  if [ -f $HOME/WLTU ] ; then
+    cat $HOME/WLTU
+  else
+    echo "Cannot find WLTU list file"
+  fi
+}
+
 
 ######################
 ## Ultra-short cuts ##
