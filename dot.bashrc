@@ -1,8 +1,8 @@
 
-###################
-#  Sam's .bashrc  #
-#   April 2013    #
-###################
+#######################
+#    Sam's .bashrc    #
+#   September 2013    #
+#######################
 
 # Source global definitions
 if [ -f /etc/bashrc ]
@@ -29,7 +29,7 @@ then
 fi
 
 # sourch lhcb specific aliases
-if [[ `hostname` == "*.cern.ch" ]] || [[ `hostname -d` == "hep.ph.ic.ac.uk" ]]
+if [[ `hostname -d` == "cern.ch" ]] || [[ `hostname -d` == "hep.ph.ic.ac.uk" ]]
 then
 	if [ -f ~/.bash/lhcb ]
 	then
