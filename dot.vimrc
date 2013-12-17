@@ -48,11 +48,15 @@ highlight Folded guifg=magenta   guibg=darkgreen
 " nb. do not remap <F1> !!
 
 " move to next split using ctrl+hjkl
-"map <F2> <C-W>w
 nmap <silent> <C-k> :wincmd k<CR>
 nmap <silent> <C-j> :wincmd j<CR>
 nmap <silent> <C-h> :wincmd h<CR>
 nmap <silent> <C-l> :wincmd l<CR>
+" move to next split using ctrl+arrows
+nmap <silent> <C-up> :wincmd k<CR>
+nmap <silent> <C-down> :wincmd j<CR>
+nmap <silent> <C-left> :wincmd h<CR>
+nmap <silent> <C-right> :wincmd l<CR>
 
 " Disable arrow keys
 "map <up> <nop>

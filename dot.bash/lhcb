@@ -19,7 +19,7 @@ fi
 
 
 # put my grid proxy file in my home directory
-export X509_USER_PROXY='$HOME/.grid/proxy'
+export X509_USER_PROXY="$HOME/.grid/proxy"
 
 ##############
 ## Software ##
