@@ -65,10 +65,11 @@ wltu () {
 # use with care, not to everybody's taste
 alias v='vim'
 alias g='gvim'
-alias p='python'
-alias ipy='ipython' # ip conflicts with an actual bash prog
 alias e='evince'    # kpdf is unreasonably ugly
 alias r='root -l'   # never want the splash screen
+alias p='python'
+alias ipy='ipython' # ip conflicts with an actual bash prog
+alias ipy3='ipython3 --profile=py3' # ipython 3
 
 # open common filetypes with one command
 o () {
