@@ -197,6 +197,12 @@ c = get_config()
 # The part of the banner to be printed before the profile
 # c.TerminalInteractiveShell.banner1 = 'Python 3.3.1 (default, Sep 25 2013, 19:29:01) \nType "copyright", "credits" or "license" for more information.\n\nIPython 0.13.2 -- An enhanced Interactive Python.\n?         -> Introduction and overview of IPython\'s features.\n%quickref -> Quick reference.\nhelp      -> Python\'s own help system.\nobject?   -> Details about \'object\', use \'object??\' for extra details.\n'
 
+# much shorter banner showing only version numbers
+import sys
+import IPython
+c.TerminalInteractiveShell.banner1 = "Python: %s IPython: %s" % (
+    sys.version.split('\n', 1)[0], IPython.__version__)
+
 # Automatically call the pdb debugger after every exception.
 # c.TerminalInteractiveShell.pdb = False
 
@@ -463,3 +469,6 @@ c = get_config()
 # Only necessary for items in script_magics where the default path will not find
 # the right interpreter.
 # c.ScriptMagics.script_paths = {}
+
+# my print message
+print('\033[1mYou\'ve got Sam\'s python3 ipython_config.py\033[0m')
