@@ -1,9 +1,10 @@
 
-
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+" pathogen for vim extensions
+call pathogen#infect()
 
 """"""""""""""""""""""""""""""
 " Misc Settings that I like "
@@ -29,6 +30,10 @@ set hlsearch
 " for files to vsp or whatever
 set wildmenu
 
+" looks in ~/.vim/indent for filetype-specific indentation rules
+" i.e. out python indenting by looking in indent/python.vim
+filetype plugin indent on
+
 
 """"""""""""""""""""""""""""""
 " colours and colour schemes "
@@ -37,8 +42,6 @@ set wildmenu
 " I use folds, so let's not have them looking butt ugly
 highlight Folded ctermfg=magenta ctermbg=darkgreen
 highlight Folded guifg=magenta   guibg=darkgreen
-"ctermbg=dar
-"#522719
 
 
 """""""""""""""""""""
@@ -48,15 +51,11 @@ highlight Folded guifg=magenta   guibg=darkgreen
 " nb. do not remap <F1> !!
 
 " move to next split using ctrl+hjkl
-nmap <silent> <C-k> :wincmd k<CR>
-nmap <silent> <C-j> :wincmd j<CR>
-nmap <silent> <C-h> :wincmd h<CR>
-nmap <silent> <C-l> :wincmd l<CR>
-" move to next split using ctrl+arrows
-nmap <silent> <C-up> :wincmd k<CR>
-nmap <silent> <C-down> :wincmd j<CR>
-nmap <silent> <C-left> :wincmd h<CR>
-nmap <silent> <C-right> :wincmd l<CR>
+nmap <silent> <C-k> <C-w><C-k>
+nmap <silent> <C-j> <C-w><C-j>
+nmap <silent> <C-h> <C-w><C-h>
+nmap <silent> <C-l> <C-w><C-l>
+" n.b. this is also configured with vim-tmux-navigator plugin
 
 " Disable arrow keys
 "map <up> <nop>
@@ -120,5 +119,4 @@ autocmd FileType h source $HOME/.vim/maps/cpp.vim
 
 " tabs not spaces when using makefile
 autocmd BufNewFile,BufRead Makefile set noexpandtab
-filetype plugin indent on " sort out python indenting by looking in indent/python.vim
 
