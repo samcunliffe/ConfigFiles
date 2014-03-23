@@ -57,16 +57,15 @@ nmap <silent> <C-h> <C-w><C-h>
 nmap <silent> <C-l> <C-w><C-l>
 " n.b. this is also configured with vim-tmux-navigator plugin
 
-" Disable arrow keys
-"map <up> <nop>
-"map <down> <nop>
-"map <left> <nop>
-"map <right> <nop>
-"imap <up> <nop>
-"imap <down> <nop>
-"imap <left> <nop>
-"imap <right> <nop>
-
+" Disable arrow keys -- bully myself into using hjkl
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
 
 """"""""""""""""""""""""
 " Map leader shortcuts "
@@ -97,10 +96,10 @@ let python_highlight_builtins = 1
 let python_highlight_exceptions = 1
 
 
-"""""""""""""""""""""""""""
-" Load my own defined maps 
+"""""""""""""""""""""""""""""""""""""
+" Load my own defined maps and prefs
 " for different languages
-"""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""
 
 " latex
 autocmd BufNewFile,BufRead *.tex source $HOME/.vim/maps/tex.vim
