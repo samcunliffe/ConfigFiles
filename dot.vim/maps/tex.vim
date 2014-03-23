@@ -31,6 +31,8 @@ imap 'it \begin{itemize}<Esc>yyplcwend<Esc>O<C-T>\item
 imap 'gr \centering<Esc>o<C-T>\includegraphics[width=0.5\textwidth]{1figs/}<Esc>i
 imap 'ce \begin{center}<Esc>yyplcwend<Esc>O
 imap 'eq \begin{equation}<Esc>yyplcwend<Esc>O
+imap 'co \begin{column}{0.49\textwidth}<Esc>yyplcwend<Esc>A<Esc>d%O
+imap 'cs \begin{columns}<Esc>yyplcwend<Esc>O'co<Esc>jo'co<Esc>3kddO
 imap 'ta \begin{table}<Esc>yyplcwend<Esc>O'ce'bu
 imap 'bu \begin{tabular}{}<Esc>yyplcwend<Esc>$xxo\caption{Caption}<Esc>o\label{tab:table}<Esc>kO<C-T>
 imap 'fi \begin{figure}<Esc>yyplcwend<Esc>O<C-T>\caption{}<CR>\label{}<Esc>kO'gr

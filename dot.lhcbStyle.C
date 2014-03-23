@@ -77,6 +77,7 @@
   lhcbStyle->SetCanvasColor(0);
   lhcbStyle->SetStatColor(0);
   lhcbStyle->SetLegendBorderSize(0);
+  lhcbStyle->SetLegendFont(132);
 
   // If you want the usual gradient palette (blue -> red)
   lhcbStyle->SetPalette(1);
