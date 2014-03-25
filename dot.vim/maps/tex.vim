@@ -26,6 +26,9 @@ if v:progname =~? "gvim"
   setlocal spell!
 endif
 
+" pres leader then '/' to comment out line
+vmap <leader>/ I%<Esc>j
+
 imap 'fr \begin{frame}[c]\frametitle{}<CR><CR>\end{frame}<Esc>2k$i
 imap 'it \begin{itemize}<Esc>yyplcwend<Esc>O<C-T>\item
 imap 'gr \centering<Esc>o<C-T>\includegraphics[width=0.5\textwidth]{1figs/}<Esc>i
