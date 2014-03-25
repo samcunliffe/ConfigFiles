@@ -27,7 +27,7 @@ if v:progname =~? "gvim"
 endif
 
 " pres leader then '/' to comment out line
-vmap <leader>/ I%<Esc>j
+map <leader>/ I%<Esc>j
 
 imap 'fr \begin{frame}[c]\frametitle{}<CR><CR>\end{frame}<Esc>2k$i
 imap 'it \begin{itemize}<Esc>yyplcwend<Esc>O<C-T>\item
@@ -40,7 +40,7 @@ imap 'ta \begin{table}<Esc>yyplcwend<Esc>O'ce'bu
 imap 'bu \begin{tabular}{}<Esc>yyplcwend<Esc>$xxo\caption{Caption}<Esc>o\label{tab:table}<Esc>kO<C-T>
 imap 'fi \begin{figure}<Esc>yyplcwend<Esc>O<C-T>\caption{}<CR>\label{}<Esc>kO'gr
 
-vmap ? I%<Esc>
+map ? I%<Esc>
 
 
 
