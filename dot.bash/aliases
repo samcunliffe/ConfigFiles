@@ -84,6 +84,8 @@ alias g='gvim'
 alias e='evince'    # kpdf is unreasonably ugly
 alias r='root -l'   # never want the splash screen
 alias p='python'
+alias m='make 2>&1 | tee make.stdout'
+alias M='make clean; make -j 2>&1 | tee make.stdout'
 alias ipy='ipython' # ip conflicts with an actual bash prog
 alias ipy3='ipython3 --profile=py3' # ipython 3
 
@@ -150,24 +152,6 @@ extract () {
   fi
 }
 
-# remake an executable
-remake () {
-  if [ -f $1.cc ]; then
-    touch $1.cc
-    make $1
-  elif [ -f $1.cpp ]; then
-    touch $1.cpp
-    make $1
-  elif [ -f src/$1.cpp ]; then
-    touch src/$1.cpp
-    make $1
-  elif [ -f main/$1.cpp ]; then
-    touch main/$1.cpp
-    make $1
-  else
-    echo "can't find the source code for '$1' "
-  fi
-}
 #alias geeknote='python $HOME/Software/Evernote/geeknote/geeknote.py'
 
 # if colorsvn exists then use it
