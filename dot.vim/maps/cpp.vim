@@ -14,8 +14,8 @@ set autoindent    " ai on
 set smartindent   " please indent correctly into finctions etc
 
 
-" make bkg different colour past 80 chars
-" encourage good practice in C++ and python
+"" make bkg different colour past 80 chars
+"" encourage good practice in C++ and python
 highlight rightMargin term=bold ctermfg=magenta ctermbg=red 
 match rightMargin /.\%>80v/
 
@@ -71,8 +71,8 @@ syn keyword vecType   vector
 " ROOT and RooFit syntax highlighting
 " /usr/share/vim/vim70/syntax for examples
 syn keyword rootType  Int_t Long64_t Double_t Float_t Bool_t Color_t
-syn keyword rootType  TH1F TH1D TH1 TGraph TH2F TH2D TH2
-syn keyword rootType  TH3F TH3D TH3 
+syn keyword rootType  TH1F TH1D TH1 TGraph TGraphErrors TH2F TH2D TH2
+syn keyword rootType  TH3F TH3D TH3 TMultiGraph
 syn keyword rootType  TGenPhaseSpace TTreeFormula TRandom3 TMath 
 syn keyword rootType  TTree TBranch TFile TChain TCanvas TString
 syn keyword rootType  TDirectory TObject TIter TKey
@@ -87,19 +87,19 @@ syn keyword rootColor kViolet kBlue kAzure kCyan kTeal kGreen kSpring
 syn keyword rootConst kTRUE kFALSE
 
 syn keyword rooType   RooAbsPdf RooAbsReal RooAbsArg
-syn keyword rooType   RooFitResult
+syn keyword rooType   RooFitResult RooMinuit
 syn keyword rooType   RooArgList RooArgSet
 syn keyword rooType   RooCategory RooWorkspace
 syn keyword rooType   RooPlot RooDataSet
 syn keyword rooType   RooRealVar RooFormulaVar
 
 " all the pdfs under the sun
-syn keyword rooType   RooSimultaneous
-syn keyword rooType   RooAddPdf RooSimPdf 
-syn keyword rooType   RooGaussian RooExponential 
+syn keyword rooType   RooSimultaneous RooRealSumPdf RooEffProd
+syn keyword rooType   RooAddPdf RooSimPdf RooProdPdf RooEffProd RooNumConvPdf
+syn keyword rooType   RooGaussian RooMultiVarGaussian RooExponential 
 syn keyword rooType   RooKeysPdf RooHistPdf
-syn keyword rooType   RooLandau RooCBShape
-syn keyword rooType   RooChebychev
+syn keyword rooType   RooLandau RooCBShape RooArgusBG
+syn keyword rooType   RooChebychev RooPolynomial RooDstD0BG RooBernstein
 
 hi def link rootType  Type
 hi def link rootColor Constant
