@@ -53,7 +53,7 @@ case "$-" in
 *i*)
   hello
   echo -ne "Notes:\n"
-  cat ~/Notes
+  cat ~/TODO
 
   # [user@host:current directory]$
   # make prompt, color depends on domain:
