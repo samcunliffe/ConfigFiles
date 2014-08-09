@@ -59,6 +59,7 @@ alias ajobs='cd $AJOBS && pwd'
 
 # svn repos
 ICSVN='svn+ssh://svn.cern.ch/reps/lhcbimperial/Users/scunliff'
+LBDOCS='svn+ssh://svn.cern.ch/reps/lhcbdocs'
 
 ##############
 ## Sessions ##
