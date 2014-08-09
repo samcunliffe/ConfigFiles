@@ -46,7 +46,10 @@ alias hello=' echo -ne "Hello, " ; whoami &&
               echo -ne "  You are using \t" ; hostname &&
               echo -ne "  running \t\t" ; lsb_release -sd &&
               echo -ne "  built on kernel\t" ; uname -sr &&
-              echo -ne "  Today is \t\t" ; date '
+              echo -ne "  Today is \t\t" ; date &&
+	      echo -ne "  GCC version\t\t"; gcc -dumpversion &&
+	      echo -ne "  python version\t"; python -V &&
+	      echo -ne "  ROOT version\t\t"; root-config --version'
 
 # only do echo commands and fancy prompts in interactive mode 
 case "$-" in
