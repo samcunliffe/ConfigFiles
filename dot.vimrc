@@ -66,6 +66,9 @@ map <right> <nop>
 "imap <down> <nop>
 "imap <left> <nop>
 "imap <right> <nop>
+"
+" Disable FUCKING Ex mode... which is NO USE WHATSOEVER
+map Q <nop>
 
 """"""""""""""""""""""""
 " Map leader shortcuts "

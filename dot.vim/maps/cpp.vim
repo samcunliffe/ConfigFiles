@@ -21,7 +21,7 @@ match rightMargin /.\%>80v/
 
 " use syntax folding by default
 " i.e. fold all functions etc using {}
-set foldmethod=syntax
+"set foldmethod=syntax
 
 
 """"""""""""""""""""
