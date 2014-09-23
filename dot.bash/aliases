@@ -154,7 +154,8 @@ extract () {
 
 #alias geeknote='python $HOME/Software/Evernote/geeknote/geeknote.py'
 
-# if colorsvn exists then use it
+# colored versions if things
+alias grep='grep --color=auto'
 if hash colorsvn 2>/dev/null; then
 	alias svn="colorsvn"
 fi
