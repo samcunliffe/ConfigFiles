@@ -16,7 +16,7 @@ set smartindent   " please indent correctly into finctions etc
 
 "" make bkg different colour past 80 chars
 "" encourage good practice in C++ and python
-highlight rightMargin term=bold ctermfg=magenta ctermbg=red 
+highlight rightMargin term=bold ctermfg=black ctermbg=red 
 match rightMargin /.\%>80v/
 
 " use syntax folding by default
