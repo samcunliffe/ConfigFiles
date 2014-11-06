@@ -85,6 +85,7 @@ alias e='evince'    # kpdf is unreasonably ugly
 alias r='root -l'   # never want the splash screen
 alias p='python'
 alias m='make 2>&1 | tee make.stdout'
+alias mj='make -j 2>&1 | tee make.stdout'
 alias M='make clean; make -j 2>&1 | tee make.stdout'
 alias ipy='ipython' # ip conflicts with an actual bash prog
 alias ipy3='ipython3 --profile=py3' # ipython 3
