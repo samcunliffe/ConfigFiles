@@ -104,6 +104,12 @@ let python_highlight_exceptions = 1
 " for different languages
 """"""""""""""""""""""""""""""""""""""
 
+" turn on spell check by default for some filetypes
+autocmd BufRead,BufNewFile *.md setlocal spell            " markdown
+autocmd BufRead,BufNewFile *.md setlocal complete+=kspell
+autocmd FileType gitcommit setlocal spell
+autocmd FileType gitcommit setlocal complete+=kspell
+
 " latex
 autocmd BufNewFile,BufRead *.tex source $HOME/.vim/maps/tex.vim
 
