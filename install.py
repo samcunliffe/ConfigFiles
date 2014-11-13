@@ -3,7 +3,8 @@
 """
 Makes a symbolic link in the home dir for all config files with pattern: 
     "dot.file" or "dot.dir" 
-in the repo. This setup structcture was stolen from github.com/rumblesan
+in the repo. This setup structcture was stolen from github.com/rumblesan.
+Optionally installs gnome-terminal colour scheme.
 """
 
 
@@ -118,6 +119,16 @@ def install_all_configfiles(repodir, homedir):
 
 
 
+def install_terminal_colors(repodir, homedir):
+    """makes link for gnome-terminal color preferences"""
+    file_to_link = repodir + "/gnome-terminal/%gconf.xml"
+    place_to_link = homedir + "/.gconf/apps/gnome-terminal/profiles/Profile0/%gconf.xml"
+    return symbolic_link(file_to_link, place_to_link)
+
+
+
+
+
 if __name__ == "__main__":
 
     # get options from user or environment variables
@@ -129,6 +140,9 @@ if __name__ == "__main__":
     op.add_option("-H", "--home-dir", dest = "homedir", 
                   default = os.environ["HOME"],
                   help = "path where the config files should be put")
+    op.add_option("-G", "--gnome-terminal", dest = "gnometerm",
+                  action = "store_true",
+                  help = "also install nice gnome-terminal colors")
     op.add_option("-d", "--debug", dest = "debug", 
                   action = "store_true",
                   help = "print the commands rather than running them")
@@ -139,3 +153,4 @@ if __name__ == "__main__":
 
     # do the installing
     install_all_configfiles(opts.repodir, opts.homedir)
+    if opts.gnometerm: install_terminal_colors(opts.repodir, opts.homedir)
