@@ -1,6 +1,5 @@
-# ubuntu-specific bash aliases
+# ubuntu and linuxmint  specific bash aliases
 
-# ubuntu aliases
 alias agi='sudo apt-get install'
 alias agr='sudo apt-get remove'
 alias ags='apt-cache search'
