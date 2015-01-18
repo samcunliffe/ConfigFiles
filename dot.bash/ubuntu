@@ -3,4 +3,5 @@
 alias agi='sudo apt-get install'
 alias agr='sudo apt-get remove'
 alias ags='apt-cache search'
-
+alias agu='sudo apt-get update'
+alias agU='sudo apt-get upgrade'
