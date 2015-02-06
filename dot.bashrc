@@ -19,15 +19,18 @@ then
 fi
 
 # source ubuntu specific aliases
-if [[ `lsb_release -is` == "Ubuntu" ]] && [ -f ~/.bash/ubuntu ]
+if [ -f ~/.bash/ubuntu ]
 then
-	. ~/.bash/ubuntu
+	if [[ `lsb_release -is` == "Ubuntu" ]] || [[ `lsb_release -is` == "LinuxMint" ]]
+	then
+		. ~/.bash/ubuntu
+	fi
 fi
 
 # sourch lhcb specific aliases
-if [[ `hostname -d` == "cern.ch" ]] || [[ `hostname -d` == "hep.ph.ic.ac.uk" ]]
+if [ -f ~/.bash/lhcb ]
 then
-	if [ -f ~/.bash/lhcb ]
+	if [[ `hostname -d` == "cern.ch" ]] || [[ `hostname -d` == "hep.ph.ic.ac.uk" ]]
 	then
 		. ~/.bash/lhcb
 	fi
