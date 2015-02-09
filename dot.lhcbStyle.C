@@ -80,7 +80,18 @@
   lhcbStyle->SetLegendFont(132);
 
   // If you want the usual gradient palette (blue -> red)
-  lhcbStyle->SetPalette(1);
+   // If you want the usual gradient palette (blue -> red)
+  const Int_t NRGBs = 4;
+  const Int_t NCont = 200; //30
+  Double_t stops[NRGBs] = { 0.00,0.33,0.66,1.0};
+  Double_t reds[NRGBs]     = {0.0,0.00,0.4,1.0};
+  Double_t greens[NRGBs] = { 0.0,0.00,1.0,1.0};
+  Double_t blues[NRGBs] = { 0.0,1.00,0.4,0.6};
+  TColor::CreateGradientColorTable(NRGBs, stops, reds, greens, blues, NCont);
+  lhcbStyle->SetNumberContours(NCont);
+
+
+ //lhcbStyle->SetPalette(1);
   // If you want colors that correspond to gray scale in black and white:
   //int colors[8] = {0,5,7,3,6,2,4,1};
   //lhcbStyle->SetPalette(8,colors);
