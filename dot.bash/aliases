@@ -165,6 +165,9 @@ fi
 ## Shortcuts ##
 ###############
 
+# git repo root
+export GITHUB=git@github.com:green0eggs/
+
 # get tube map from www
 alias tubemap='evince http://www.tfl.gov.uk/assets/downloads/standard-tube-map.pdf'
 alias tpgmap='evince http://www.tpg.ch/documents/10162/139522/Plan+peripherique+-+mai+2012'
