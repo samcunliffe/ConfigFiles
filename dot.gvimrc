@@ -8,7 +8,6 @@ set lines=90 columns=90
 
 " aesthetics
 colorscheme navajo-night    " nice color scheme
-set guifont=Inconsolata\ 11 " nice font, nice size
 set guioptions-=T           " turns off button toolbar
 set guioptions-=r           " turns off rh scrollbar
 
