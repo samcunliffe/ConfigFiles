@@ -92,11 +92,15 @@ alias ipy3='ipython3 --profile=py3' # ipython 3
 
 # open common filetypes with one command
 o () {
+  VIEWER=evince
+  if hash zathura 2>/dev/null; then
+    VIEWER=zathura
+  fi
   if [ -f $1 ] ; then
     case $1 in
-      *.pdf)   evince $1  ;;
-      *.eps)   evince $1  ;;
-      *.ps)    evince $1  ;;
+      *.pdf)   $VIEWER $1  ;;
+      *.eps)   $VIEWER $1  ;;
+      *.ps)    $VIEWER $1  ;;
       *.png)   display $1 ;;
       *.jpg)   display $1 ;;
       *.jpeg)   display $1 ;;
