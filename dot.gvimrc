@@ -4,7 +4,7 @@
 """""""""""""""""""""
 
 " default window
-set lines=90 columns=90
+set lines=80 columns=120
 
 " aesthetics
 colorscheme navajo-night    " nice color scheme
