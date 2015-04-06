@@ -200,7 +200,7 @@ StTooltip StLabel {
  * ===================================================================*/
 
 #panel {
-	background-color: rgba(85,83,80,1);
+	background-color: rgba(85,83,80,0); /* transparency last 0=trans, 1=opaq*/
 	height: 28px;
 	font-size: 9pt;
 }
@@ -326,7 +326,10 @@ StTooltip StLabel {
 
 .workspace-thumbnails {
 	spacing: 20px;
+	font-size: 8pt;
 }
+/* box-width: 500px;
+ * width: 500px;*/
 
 .workspace-add-button {
 	background-image: url("add-workspace-button.svg");
@@ -1148,14 +1151,14 @@ height of the table to be ICON_SIZE + IMAGE_SIZE + spacing-rows = 24 + 125 + 10 
 	width: 22px;
 	color: rgba(255,255,255,0);
 	 */
-background-color: rgba(85,83,80,1);
+background-color: rgba(85,83,80,0.3);
 transition-duration: 300;
 }
 
 .window-list-item-box:active,
 .window-list-item-box:checked,
 .window-list-item-box:focus  {  
-	background-color: rgba(66,65,62,1);
+	background-color: rgba(66,65,62,0.5);
 }
 
 .window-list-item-box:hover	{
@@ -1259,7 +1262,6 @@ background: rgba(66,65,62,1);
  * ===================================================================*/
 #workspaceSwitcher {
 	spacing: 0px;
-	padding: 2px;
 }
 
 .workspace-button {
@@ -1378,7 +1380,9 @@ background: rgba(66,65,62,1);
 	color: #eae3d1;
 	box-shadow: 0px 2px 4px rgba(0,0,0,0.7);
 	padding: 6px 8px 8px 8px;
-	height: 16px;
+	height: 30px; /* text box in tw workspace switch env*/
+	width: 300px;
+	font-size: 20px;
 	transition-duration: 300;
 }
 
