@@ -153,4 +153,5 @@ if __name__ == "__main__":
 
     # do the installing
     install_all_configfiles(opts.repodir, opts.homedir)
+    symbolic_link(opts.repodir+"/config.zathura", opts.homedir+"/.config/zathura")
     if opts.gnometerm: install_terminal_colors(opts.repodir, opts.homedir)
