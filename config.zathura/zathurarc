@@ -1,0 +1,6 @@
+
+# window dimensions on startup
+set window-height 1060
+set window-width  2048
+
+# set adjust-open width
