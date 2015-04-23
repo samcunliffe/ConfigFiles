@@ -5,11 +5,7 @@
 stage {
 	font-family: Droid-Sans, sans-serif;
 	color: #eae3d1;
-font-size: 12pt;
-	/*
-	font-family: ubuntu, sans;
-	font-size: 10pt;
-	 */
+	font-size: 17pt;
 }
 
 .cinnamon-link {
@@ -74,7 +70,7 @@ StTooltip StLabel {
  * ===================================================================*/
 
 .popup-menu {
-    font-size: 11.0pt;
+	font-size: 17.0pt;
 }
 
 .popup-menu-boxpointer {
@@ -202,7 +198,7 @@ StTooltip StLabel {
 #panel {
 	background-color: rgba(85,83,80,0); /* transparency last 0=trans, 1=opaq*/
 	height: 28px;
-	font-size: 9pt;
+	font-size: 15pt;
 }
 
 #panelLeft, #panelCenter, #panelRight {
@@ -261,7 +257,8 @@ StTooltip StLabel {
 }
 
 .system-status-icon {
-	icon-size: 1.27em;
+	icon-size: 0.5em;
+	/*icon-size: 1.27em;*/
 }
 
 #panelLeft:dnd {
@@ -504,12 +501,13 @@ StTooltip StLabel {
 
 .datemenu-date-label {
 	padding: .4em 1.75em;
+	font-size: 20px;
 	font-weight: bold;
 	text-align: center;
 }
 
 .calendar-month-label {
-	font-size: 8.5pt;
+	font-size: 15pt;
 	font-weight: bold;
 	padding-bottom: 3px;
 	padding-top: 2px;
@@ -545,7 +543,7 @@ StTooltip StLabel {
 }
 
 .calendar-day-base {
-	font-size: 7.5pt;
+	font-size: 15pt;
 	text-align: center;
 	width: 2.4em;
 	max-height: 2.4em;
@@ -953,6 +951,7 @@ height of the table to be ICON_SIZE + IMAGE_SIZE + spacing-rows = 24 + 125 + 10 
 .menu {
 	font-size: 10.0pt;
 	icon-size: 100px;
+	padding: 15px;
 }
 
 .menu-favorites-box {
@@ -1008,15 +1007,15 @@ height of the table to be ICON_SIZE + IMAGE_SIZE + spacing-rows = 24 + 125 + 10 
 .menu-categories-box {
 	padding-top: 15px;
 	padding-left: 15px;
-	padding-right: 5px;
-	padding-bottom: 0px;
+	padding-right: 15px;
+	padding-bottom: 15px;
 }
 
 .menu-applications-box {
 	padding-top: 15px;
-	padding-left: 10px;
+	padding-left: 15px;
 	padding-right: 15px;
-	padding-bottom: 0px;
+	padding-bottom: 15px;
 }
 
 .menu-application-button {
@@ -1074,14 +1073,19 @@ height of the table to be ICON_SIZE + IMAGE_SIZE + spacing-rows = 24 + 125 + 10 
 }
 
 .menu-selected-app-box {
+	/*
 	padding-right: 30px;
 	padding-left: 28px;
-	text-align: right;
+	padding-bottom: 50px;
+	 */
+font-size: 20px;
+/*height: 50px;*/
+text-align: right;
 }
 
 .menu-selected-app-box:rtl {
-	padding-top: 10px;
-	height: 30px;
+	padding-top: 15px;
+	height: 500px;
 }
 
 .menu-selected-app-title {
@@ -1091,13 +1095,9 @@ height of the table to be ICON_SIZE + IMAGE_SIZE + spacing-rows = 24 + 125 + 10 
 
 .menu-selected-app-description {
 	max-width: 150px;
+	padding-bottom: 40px;
 }
 
-/*
-.menu-search-box {
-	font-size: 15pt;
-}
-*/
 .menu-search-box:ltr {
 	padding-left: 25px;
 }
@@ -1116,8 +1116,9 @@ height of the table to be ICON_SIZE + IMAGE_SIZE + spacing-rows = 24 + 125 + 10 
 	color: #3c3b37;
 	/*width: 250px;*/
 	width: 500px;
+	height: 40px;
 	font-weight: normal;
-	font-size: 15pt;
+	font-size: 20pt;
 	padding: 4px;
 	padding-bottom: 4px;
 	box-shadow: inset 2px 2px 4px 1px rgba(20,20,20,0.2);
@@ -1133,13 +1134,14 @@ height of the table to be ICON_SIZE + IMAGE_SIZE + spacing-rows = 24 + 125 + 10 
  * ===================================================================*/
 
 .window-list-box {
+	font-size: 20px;
 	spacing: 0px;
 	transition-duration: 300;
 }
 
 .window-list-item-label {
 	font-weight: bold;
-	width: 15em;
+	width: 100px;
 	min-width: 5px;
 }
 
@@ -1341,7 +1343,7 @@ background: rgba(66,65,62,1);
 	padding-left: 4px;
 	padding-right: 4px;    
 	font-weight: normal;
-	font-size: 9pt;
+	font-size: 15pt;
 	text-shadow: 0px 1px 1px rgba(0,0,0,0.2);
 	transition-duration: 300;
 }
