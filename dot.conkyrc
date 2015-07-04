@@ -1,0 +1,72 @@
+# Conky settings #
+background yes
+update_interval 1
+double_buffer yes
+no_buffers yes
+imlib_cache_size 10
+
+# Window specifications #
+gap_x 0
+gap_y 0
+minimum_size 350 5
+maximum_width 350
+alignment top_right
+own_window yes
+own_window_type normal
+own_window_transparent yes
+own_window_argb_visual yes
+own_window_argb_value 500
+own_window_hints undecorate,sticky,skip_taskbar,skip_pager,below
+border_inner_margin 0
+border_outer_margin 30
+
+# Graphics settings #
+draw_shades no
+default_shade_color AAAAAA
+draw_outline no
+default_outline_color AAAAAA
+draw_borders no
+draw_graph_borders no
+default_graph_size 26 80
+show_graph_scale no
+show_graph_range no
+#use_spacer left
+#pad_percents 2
+
+# Text settings #
+use_xft yes
+xftalpha 0
+xftfont Droid Sans:size=18
+#text_buffer_size 256
+text_buffer_size 500
+override_utf8_locale yes
+
+# Useful shortenings #
+short_units yes
+pad_percents  3
+top_name_width 30
+
+# Color scheme #
+default_color FFFFFF
+
+TEXT
+# Cpu, memory and disk IO
+cpu:${alignr}${cpu cpu1}% ${cpu cpu2}% ${cpu cpu3}% ${cpu cpu4}% 
+${cpugraph cpu1 26,350 FFFFFF FFFFFF}
+${cpugraph cpu2 26,350 FFFFFF FFFFFF}
+${cpugraph cpu3 26,350 FFFFFF FFFFFF}
+${cpugraph cpu4 26,350 FFFFFF FFFFFF}
+core 0:${alignr}${execi 6 /usr/bin/sensors | grep "Core 0" | cut -d "+" -f2 | cut -d "(" -f1}
+core 1:${alignr}${execi 6 /usr/bin/sensors | grep "Core 1" | cut -d "+" -f2 | cut -d "(" -f1}
+mem:${alignr}${memperc}%
+${memgraph 26,350 FFFFFF FFFFFF}
+file i/o:${alignr}${diskio}
+${diskiograph 26,350 FFFFFF FFFFFF}
+${if_existing /proc/net/route wlan0}
+u: ${upspeed wlan0}${alignr}d: ${downspeed wlan0}
+${upspeedgraph wlan0 26,150 FFFFFF FFFFFF}${alignr}${downspeedgraph wlan0 26,150 FFFFFF FFFFFF}
+${endif}
+${if_existing /proc/net/route eth0}
+u: ${upspeed eth0}${alignr}d: ${color2}${downspeed eth0}
+${upspeedgraph eth0 26,150 FFFFFF FFFFFF}${goto 150}${downspeedgraph eth0 26,150 FFFFFF FFFFFF}
+${endif}
