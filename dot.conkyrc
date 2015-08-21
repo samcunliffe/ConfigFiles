@@ -51,17 +51,23 @@ default_color FFFFFF
 
 TEXT
 # Cpu, memory and disk IO
+
 cpu:${alignr}${cpu cpu1}% ${cpu cpu2}% ${cpu cpu3}% ${cpu cpu4}% 
 ${cpugraph cpu1 26,350 FFFFFF FFFFFF}
 ${cpugraph cpu2 26,350 FFFFFF FFFFFF}
 ${cpugraph cpu3 26,350 FFFFFF FFFFFF}
 ${cpugraph cpu4 26,350 FFFFFF FFFFFF}
-core 0:${alignr}${execi 6 /usr/bin/sensors | grep "Core 0" | cut -d "+" -f2 | cut -d "(" -f1}
-core 1:${alignr}${execi 6 /usr/bin/sensors | grep "Core 1" | cut -d "+" -f2 | cut -d "(" -f1}
+core 0: ${alignr}${execi 6 /usr/bin/sensors | grep "Core 0" | cut -d "+" -f2 | cut -d "C" -f1}C
+core 1: ${alignr}${execi 6 /usr/bin/sensors | grep "Core 1" | cut -d "+" -f2 | cut -d "C" -f1}C
+fan: ${alignr}${execi 6 /usr/bin/sensors | grep "fan1" | cut -d ":" -f2 | cut -d "C" -f1}
 mem:${alignr}${memperc}%
 ${memgraph 26,350 FFFFFF FFFFFF}
 file i/o:${alignr}${diskio}
 ${diskiograph 26,350 FFFFFF FFFFFF}
+/:${alignc}${fs_free /}${alignr}${fs_free_perc /}%
+${fs_bar 6 /}
+/home:${alignc}${fs_free /home}${alignr}${fs_free_perc /home}%
+${fs_bar 6 /home}
 ${if_existing /proc/net/route wlan0}
 u: ${upspeed wlan0}${alignr}d: ${downspeed wlan0}
 ${upspeedgraph wlan0 26,150 FFFFFF FFFFFF}${alignr}${downspeedgraph wlan0 26,150 FFFFFF FFFFFF}
