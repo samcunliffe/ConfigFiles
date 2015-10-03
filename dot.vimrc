@@ -124,6 +124,7 @@ autocmd FileType c source $HOME/.vim/maps/cpp.vim
 autocmd FileType C source $HOME/.vim/maps/cpp.vim
 autocmd FileType hpp source $HOME/.vim/maps/cpp.vim
 autocmd FileType h source $HOME/.vim/maps/cpp.vim
+autocmd FileType hs source $HOME/.vim/maps/haskell.vim
 
 " tabs not spaces when using makefile
 autocmd BufNewFile,BufRead Makefile set noexpandtab
