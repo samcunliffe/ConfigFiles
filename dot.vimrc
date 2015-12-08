@@ -3,7 +3,8 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-" pathogen for vim extensions
+" load pathogen for vim extensions in the bindle/ directory
+runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
 """"""""""""""""""""""""""""""
