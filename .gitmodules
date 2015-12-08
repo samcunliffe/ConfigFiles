@@ -7,3 +7,6 @@
 [submodule "dot.vim/bundle/vim-tmux-navigator"]
 	path = dot.vim/bundle/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator
+[submodule "dot.vim/bundle/vim-go"]
+	path = dot.vim/bundle/vim-go
+	url = git@github.com:fatih/vim-go.git
