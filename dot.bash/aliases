@@ -26,6 +26,7 @@ alias cpl="clear && pwd && ls"
 
 # go up directory
 alias ..='cd ..'
+alias ....='cd ../..'
 
 # list top 10 biggest files in a place
 alias bigfiles='du -a . | sort -nr | head'
@@ -34,6 +35,9 @@ alias bigfiles='du -a . | sort -nr | head'
 alias ncores='grep -c processor /proc/cpuinfo'
 alias totram='/proc/meminfo | grep "memtotal"'
 alias me='top -u `whoami`'
+
+# file safety
+backup () { cp "$1"{,.bkup}; }
 
 # git
 alias gst='git status'  ## gs conflicts with ghostscript
