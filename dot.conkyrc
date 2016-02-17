@@ -50,8 +50,6 @@ top_name_width 30
 default_color FFFFFF
 
 TEXT
-# Cpu, memory and disk IO
-
 cpu:${alignr}${cpu cpu1}% ${cpu cpu2}% ${cpu cpu3}% ${cpu cpu4}% 
 ${cpugraph cpu1 26,350 FFFFFF FFFFFF}
 ${cpugraph cpu2 26,350 FFFFFF FFFFFF}
