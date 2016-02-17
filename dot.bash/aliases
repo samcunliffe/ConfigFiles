@@ -115,6 +115,10 @@ o () {
   fi
 }
 
+# wrap bc calculator command
+calc () {
+    bc -l <<< "@0"
+}
 
 
 ##################
