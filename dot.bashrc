@@ -45,14 +45,19 @@ fi
 
 
 # command to check everything
-alias hello=' echo -ne "Hello, " ; whoami &&
-              echo -ne "  You are using \t" ; hostname &&
-              echo -ne "  running \t\t" ; lsb_release -sd &&
-              echo -ne "  built on kernel\t" ; uname -sr &&
-              echo -ne "  Today is \t\t" ; date &&
-	      echo -ne "  GCC version\t\t"; gcc -dumpversion &&
-	      echo -ne "  python version\t"; python -V &&
-	      echo -ne "  ROOT version\t\t"; root-config --version'
+hello() {
+	printf "Hello, %s\n" $(whoami)
+	printf "Today is\t%s\n" "$(date)"
+	printf "You're using\t%s on %s\n" "$(lsb_release -sd)" "$(hostname)"
+	printf "Kernel version\t%s\n" "$(uname -r)"
+	printf "GCC version\t%s\n" "$(gcc -dumpversion)"
+	printf "python version\t"
+	# python -V is a total pain and needs to have the stream redirected
+	# also, it already terminates in a '\n' newline so just take the
+        # output from sed
+	sed 's/[A-Za-z ]//g' <<< "$(python --version 2>&1)"
+	printf "ROOT version\t%s\n" "$(root-config --version)"
+}
 
 # only do echo commands and fancy prompts in interactive mode 
 case "$-" in
