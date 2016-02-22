@@ -57,13 +57,15 @@ hello() {
         # output from sed
 	sed 's/[A-Za-z ]//g' <<< "$(python --version 2>&1)"
 	printf "ROOT version\t%s\n" "$(root-config --version)"
+	printf "ghc version\t" 
+	sed 's/[A-Za-z ,]//g' <<< $(ghc --version)
 }
 
 # only do echo commands and fancy prompts in interactive mode 
 case "$-" in
 *i*)
   hello
-  echo -ne "Notes:\n"
+  printf "\nNotes:\n"
   cat ~/TODO
 
   # [user@host:current directory]$
