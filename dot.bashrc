@@ -27,13 +27,10 @@ then
 	fi
 fi
 
-# sourch lhcb specific aliases
-if [ -f ~/.bash/lhcb ]
+# sourch Belle II specific aliases
+if [ -f ~/.bash/belle2 ]
 then
-	if [[ `hostname -d` == "cern.ch" ]] || [[ `hostname -d` == "hep.ph.ic.ac.uk" ]]
-	then
-		. ~/.bash/lhcb
-	fi
+	. ~/.bash/belle2
 fi
 
 # sourch definitions relevent to this machine

@@ -1,2 +1,0 @@
-#Rint.Logon: ~/.rootlogon.C
-X11.XInitThread: no # makes panoramix work
