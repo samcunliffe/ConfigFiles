@@ -62,9 +62,6 @@ hello() {
 case "$-" in
 *i*)
   hello
-  printf "\nNotes:\n"
-  cat ~/TODO
-
   # [user@host:current directory]$
   # make prompt, color depends on domain:
   if [ "$LOC_COL" == "" ]; then

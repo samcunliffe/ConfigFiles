@@ -1,0 +1,4 @@
+export BELLE2_USER=scunliff
+alias b2='. /cvmfs/belle.cern.ch/sl6/tools/setup_belle2'
+alias b2sr='b2 && setuprel release-00-07-01'
+alias b2sb='b2 && setuprel build-2016-09-05'

@@ -12,21 +12,9 @@ alias mv='mv -i'
 alias ll="ls -lh"
 alias ls='ls -hF --color' # add colors for filetype recognition
 alias la='ls -Alh'        # show hidden files
-alias lx='ls -lXBh'       # sort by extension
-alias lk='ls -lSrh'       # sort by size, biggest last
-alias lc='ls -ltcrh'      # sort by and show change time, most recent last
-alias lu='ls -lturh'      # sort by and show access time, most recent last
 alias lt='ls -ltrh'       # sort by date, most recent last
-alias lm='ls -alh |more'  # pipe through 'more'
-alias lr='ls -lRh'        # recursive ls
-alias tree='tree -Csu'    # nice alternative to 'recursive ls'
 alias l='ls -CFh'
-alias cl="clear && ls"
-alias cpl="clear && pwd && ls"
-
-# go up directory
-alias ..='cd ..'
-alias ....='cd ../..'
+alias ..='cd ..' 	  # go up directory
 
 # list top 10 biggest files in a place
 alias bigfiles='du -a . | sort -nr | head'
@@ -36,47 +24,11 @@ alias ncores='grep -c processor /proc/cpuinfo'
 alias totram='/proc/meminfo | grep "memtotal"'
 alias me='top -u `whoami`'
 
+# Stop Root's anoying splash screen
+alias root='root -l'
+
 # file safety
 backup () { cp "$1"{,.bkup}; }
-
-# git
-alias gst='git status'  ## gs conflicts with ghostscript
-alias ga='git add'
-alias gu='git add -u'
-
-# read todo list
-todo () {
-  if [ -f $HOME/TODO ] ; then
-    cat $HOME/TODO
-  else
-    echo "Cannot find TODO list file"
-  fi
-}
-
-wltu () {
-  if [ -f $HOME/WLTU ] ; then
-    cat $HOME/WLTU
-  else
-    echo "Cannot find WLTU list file"
-  fi
-}
-
-# get a single page from a pdf (using ghostscript wizardry)
-function pdfpgextr()
-{
-  #http://www.linuxjournal.com/content/tech-tip-extract-pages-pdf
-  # this function uses 3 arguments:
-  #     $1 is the first page of the range to extract
-  #     $2 is the last page of the range to extract
-  #     $3 is the input file
-  #     output file will be named "inputfile_pXX-pYY.pdf"
-  gs -sDEVICE=pdfwrite -dNOPAUSE -dBATCH -dSAFER \
-     -dFirstPage=${1} \
-     -dLastPage=${2} \
-     -sOutputFile=${3%.pdf}_p${1}-p${2}.pdf \
-     ${3}
-}
-
 
 ######################
 ## Ultra-short cuts ##
@@ -88,11 +40,6 @@ alias g='gvim'
 alias e='evince'    # kpdf is unreasonably ugly
 alias r='root -l'   # never want the splash screen
 alias p='python'
-alias m='make 2>&1 | tee make.stdout'
-alias mj='make -j 2>&1 | tee make.stdout'
-alias M='make clean; make -j 2>&1 | tee make.stdout'
-alias ipy='ipython' # ip conflicts with an actual bash prog
-alias ipy3='ipython3 --profile=py3' # ipython 3
 
 # open common filetypes with one command
 o () {
@@ -114,34 +61,6 @@ o () {
     echo "'$1' is not a valid file!"
   fi
 }
-
-# wrap bc calculator command
-calc () {
-    bc -l <<< "@0"
-}
-
-
-##################
-## ROOT Shizzle ##
-##################
-
-# Stop Root's anoying splash screen
-alias root='root -l'
-
-# root with a TBrowser straight away
-alias rtb='root -l $HOME/Scripts/newTBrowser.C'
-
-# invoke g++ with root cflags bells and whistles
-alias gr='g++ `root-config --cflags --libs` '
-alias grrf='g++ `root-config --cflags --libs` -lRooFit -lRooFitCore   '
-alias grrs='g++ `root-config --cflags --libs` -lRooFit -lRooFitCore -lRooStats -lFoam -lMinuit '
-
-#############
-## Scripts ##
-#############
-
-# Sammy H's particles.sh
-alias particles='. $HOME/Scripts/particles.sh'
 
 # extract basically every type of archive
 extract () {
@@ -165,34 +84,11 @@ extract () {
   fi
 }
 
-#alias geeknote='python $HOME/Software/Evernote/geeknote/geeknote.py'
-
 # colored versions if things
 alias grep='grep --color=auto'
 if hash colorsvn 2>/dev/null; then
 	alias svn="colorsvn"
 fi
-
-###############
-## Shortcuts ##
-###############
-
-# git repo root
-export GITHUB=git@github.com:green0eggs/
-
-# get tube map from www
-alias tubemap='evince http://www.tfl.gov.uk/assets/downloads/standard-tube-map.pdf'
-alias tpgmap='evince http://www.tpg.ch/documents/10162/139522/Plan+peripherique+-+mai+2012'
-alias ybus='evince http://www.tpg.ch/html/pdf/Y/YAllerbrun01.pdf & evince http://www.tpg.ch/html/pdf/Y/YRetourcern02.pdf'
-
-# go to pdg
-alias pdg='firefox http://pdglive.lbl.gov/listings1.brl?quickin=Y'
-
-# there really should be a man page for this
-alias man_grammar='firefox http://www.bristol.ac.uk/arts/exercises/grammar/grammar_tutorial/index.htm'
-
-# sam h
-alias jabberwocky='echo "vorpal swords at the ready"'
 
 ##################
 ## Environment ###
@@ -203,4 +99,4 @@ export EDITOR=vim
 export SVN_EDITOR=vim
 
 # append my personal python packages to the pythonpath
-export PYTHONPATH=$HOME/Python/:$PYTHONPATH
+export PYTHONPATH=$HOME/Code/python/:$PYTHONPATH
