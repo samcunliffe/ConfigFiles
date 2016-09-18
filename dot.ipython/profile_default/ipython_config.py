@@ -378,4 +378,4 @@ c.TerminalInteractiveShell.banner1 = "Python: %s IPython: %s\n" % (
 # etc., but can be unsafe because the code is actually evaluated on TAB.
 # c.IPCompleter.greedy = False
 
-print "\033[1mYou've got Sam's ipython_config.py\033[0m"
+print("\033[1mYou've got Sam's ipython_config.py\033[0m")
