@@ -10,3 +10,6 @@
 [submodule "dot.vim/bundle/vim-go"]
 	path = dot.vim/bundle/vim-go
 	url = git@github.com:fatih/vim-go.git
+[submodule "dot.vim/bundle/julia-vim"]
+	path = dot.vim/bundle/julia-vim
+	url = git://github.com/JuliaEditorSupport/julia-vim.git
