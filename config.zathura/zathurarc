@@ -1,9 +1,0 @@
-
-# window dimensions on startup
-set window-height 1060
-set window-width  2048
-
-# set status bar font and size (to be not minute on my hres screen)
-if hostname() == "zero-gravitas"
-	set font "Ubuntu\ Mono\ 19"
-endif
