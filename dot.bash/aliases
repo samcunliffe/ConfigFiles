@@ -10,22 +10,18 @@ alias mv='mv -i'
 
 # the 'ls' family 
 alias ll="ls -lh"
-alias ls='ls -hF --color' # add colors for filetype recognition
+alias l='ls -hF --color' # add colors for filetype recognition
 alias la='ls -Alh'        # show hidden files
 alias lt='ls -ltrh'       # sort by date, most recent last
-alias l='ls -CFh'
 alias ..='cd ..' 	  # go up directory
 
 # list top 10 biggest files in a place
-alias bigfiles='du -a . | sort -nr | head'
+alias bigfiles='du -a . | sort -nr | less'
 
 # machine information
 alias ncores='grep -c processor /proc/cpuinfo'
 alias totram='/proc/meminfo | grep "memtotal"'
 alias me='top -u `whoami`'
-
-# Stop Root's anoying splash screen
-alias root='root -l'
 
 # file safety
 backup () { cp "$1"{,.bkup}; }
@@ -37,7 +33,6 @@ backup () { cp "$1"{,.bkup}; }
 # use with care, not to everybody's taste
 alias v='vim'
 alias g='gvim'
-alias e='evince'    # kpdf is unreasonably ugly
 alias r='root -l'   # never want the splash screen
 alias p='python'
 
@@ -47,6 +42,8 @@ o () {
   if hash zathura 2>/dev/null; then
     VIEWER=zathura
   fi
+  # TODO: since I need to use mac, this
+  # needs to default to 'open' on osx
   if [ -f $1 ] ; then
     case $1 in
       *.pdf)   $VIEWER $1  ;;
@@ -97,6 +94,3 @@ fi
 export VISUAL=vim
 export EDITOR=vim
 export SVN_EDITOR=vim
-
-# append my personal python packages to the pythonpath
-export PYTHONPATH=$HOME/Code/python/:$PYTHONPATH
