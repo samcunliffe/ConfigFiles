@@ -4,7 +4,6 @@
 set nocompatible
 
 " load pathogen for vim extensions in the bundle/ directory
-runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
 """"""""""""""""""""""""""""""
