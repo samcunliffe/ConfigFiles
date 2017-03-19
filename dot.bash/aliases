@@ -35,6 +35,8 @@ alias v='vim'
 alias g='gvim'
 alias r='root -l'   # never want the splash screen
 alias p='python'
+alias m='make'
+alias M='make clean && make'
 
 # open common filetypes with one command
 o () {
@@ -81,11 +83,18 @@ extract () {
   fi
 }
 
+#########################
+## Fix default options ##
+#########################
+
 # colored versions if things
 alias grep='grep --color=auto'
 if hash colorsvn 2>/dev/null; then
 	alias svn="colorsvn"
 fi
+
+# scons with the 'figure out the correct directory' option
+alias scons='scons -D'
 
 ##################
 ## Environment ###
