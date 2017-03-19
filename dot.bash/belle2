@@ -1,4 +1,5 @@
 export BELLE2_USER=scunliff
+export BELLE2_GIT_ACCESS=ssh 
 alias b2='. /cvmfs/belle.cern.ch/sl6/tools/setup_belle2'
-alias b2sr='b2 && setuprel release-00-07-01'
-alias b2sb='b2 && setuprel build-2016-09-05'
+alias sr='setuprel' # need to be in release dir
+alias b2sr='b2 && setuprel release-00-08-00'
