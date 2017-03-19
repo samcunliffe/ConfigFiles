@@ -3,7 +3,7 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-" load pathogen for vim extensions in the bindle/ directory
+" load pathogen for vim extensions in the bundle/ directory
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
@@ -126,6 +126,9 @@ autocmd FileType C source $HOME/.vim/maps/cpp.vim
 autocmd FileType hpp source $HOME/.vim/maps/cpp.vim
 autocmd FileType h source $HOME/.vim/maps/cpp.vim
 autocmd FileType hs source $HOME/.vim/maps/haskell.vim
+
+" odd fortran filetype (fortran include)
+autocmd FileType fi set syntax=fortan
 
 " tabs not spaces when using makefile
 autocmd BufNewFile,BufRead Makefile set noexpandtab
