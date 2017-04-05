@@ -21,9 +21,10 @@ fi
 # source ubuntu specific aliases
 if [ -f ~/.bash/ubuntu ]
 then
-	if [[ `lsb_release -is` == "Ubuntu" ]] || [[ `lsb_release -is` == "LinuxMint" ]]
-	then
-		. ~/.bash/ubuntu
+	if hash lsb_release 2>/dev/null; then
+		if [[ `lsb_release -is` == "Ubuntu" ]] || [[ `lsb_release -is` == "LinuxMint" ]]; then
+			. ~/.bash/ubuntu
+		fi
 	fi
 fi
 
@@ -43,9 +44,16 @@ fi
 
 # command to check everything
 hello() {
+	# if linux: what kernel, if mac: what osx version
+	if hash lsb_release 2>/dev/null; then
+		swvers="$(lsb_release -sd)" 
+	else
+		swvers="$(sw_vers -productName) $(sw_vers -productVersion)"
+	fi
+	# a nice greeting
 	printf "Hello, %s\n" $(whoami)
 	printf "Today is\t%s\n" "$(date)"
-	printf "You're using\t%s on %s\n" "$(lsb_release -sd)" "$(hostname)"
+	printf "You're using\t%s on %s\n" "$swvers" "$(hostname)"
 	printf "Kernel version\t%s\n" "$(uname -r)"
 	printf "GCC version\t%s\n" "$(gcc -dumpversion)"
 	printf "python version\t"
