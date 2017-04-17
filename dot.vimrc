@@ -10,6 +10,8 @@ call pathogen#infect()
 " Misc Settings that I like "
 """"""""""""""""""""""""""""""
 
+syntax on " obviously !?
+
 " turn off error bell, switch on visual bell
 set visualbell
 
@@ -115,7 +117,6 @@ autocmd BufNewFile,BufRead *.tex source $HOME/.vim/maps/tex.vim
 
 " python
 autocmd FileType python source $HOME/.vim/maps/python.vim
-"autocmd FileType python source $HOME/.vim/python.vim
 
 " c/c++ with root
 autocmd FileType cpp source $HOME/.vim/maps/cpp.vim
