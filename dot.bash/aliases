@@ -9,8 +9,9 @@ alias cp='cp -i'
 alias mv='mv -i'
 
 # the 'ls' family 
+alias cl='clear && ls -hF --color'
 alias ll="ls -lh"
-alias l='ls -hF --color' # add colors for filetype recognition
+alias l='ls -hF --color'
 alias la='ls -Alh'        # show hidden files
 alias lt='ls -ltrh'       # sort by date, most recent last
 alias ..='cd ..' 	  # go up directory
@@ -34,7 +35,8 @@ backup () { cp "$1"{,.bkup}; }
 alias v='vim'
 alias g='gvim'
 alias r='root -l'   # never want the splash screen
-alias p='python'
+alias p='python3'
+alias i='ipython'
 alias m='make'
 alias M='make clean && make'
 
