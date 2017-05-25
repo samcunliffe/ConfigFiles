@@ -5,5 +5,6 @@ alias b2='. /cvmfs/belle.cern.ch/sl6/tools/setup_belle2'
 alias sr='setuprel' # need to be in release dir
 alias b2sr8='b2 && setuprel release-00-08-00'
 alias b2sr7='b2 && setuprel release-00-07-02'
+alias b2itop='b2 && cd $HOME/itop/b2sw/ && setuprel && pwd'
 
 alias gb2='. $HOME/sw/gbasf2/setup_gbasf2'
