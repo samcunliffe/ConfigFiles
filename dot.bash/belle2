@@ -1,13 +1,12 @@
 export BELLE2_USER=scunliff
 export BELLE2_GIT_ACCESS=ssh 
 
-alias b2='. /cvmfs/belle.cern.ch/sl6/tools/setup_belle2'
-alias sr='setuprel' # need to be in release dir
+alias b2='. /cvmfs/belle.cern.ch/sl6/tools/b2setup'
 
-alias b2sr7='b2 && setuprel release-00-07-02'
-alias b2sr8='b2 && setuprel release-00-08-00'
-alias b2sr9='b2 && setuprel release-00-09-00'
-
-alias b2itop='b2 && cd $HOME/itop/b2sw/ && setuprel && pwd'
+alias b2sr7='b2 && b2setup release-00-07-02'
+alias b2sr8='b2 && b2setup release-00-08-00'
+alias b2sr9='b2 && b2setup release-00-09-00'
+alias b2sr1='b2 && b2setup release-01-02-00'
+alias b2sr2='b2 && b2setup release-02-00-00'
 
 alias gb2='. $HOME/sw/gbasf2/setup_gbasf2'
