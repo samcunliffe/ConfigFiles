@@ -69,15 +69,14 @@ hello() {
 # only do echo commands and fancy prompts in interactive mode 
 case "$-" in
 *i*)
-  hello
   # [user@host:current directory]$
   # make prompt, color depends on domain:
   if [ "$LOC_COL" == "" ]; then
     # no environment variable found,
     # perhaps it wasn't set in .bash_local?
-    PS1='[\u@\h:\W]\$ '
+    PS1='> ' #[\u@\h:\W]\$ '
   else
-    PS1="[\[$LOC_COL\]\u@\h\[$TXT_RST\]:\W]\$ "
+    PS1="\[$LOC_COL\]⮞\[$TXT_RST\] " #[\[$LOC_COL\]\u@\h\[$TXT_RST\]:\W]\$ "
   fi;;
 *)
   # This shell is not interactive
