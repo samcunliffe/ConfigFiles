@@ -36,7 +36,7 @@ alias v='vim'
 alias g='gvim'
 alias r='root -l'   # never want the splash screen
 alias p='python3'
-alias i='ipython'
+alias i='ipython3'
 alias m='make'
 alias M='make clean && make'
 
