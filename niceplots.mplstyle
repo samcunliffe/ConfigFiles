@@ -1,0 +1,30 @@
+# "canvas" dimensions in inches
+figure.figsize : 8, 6
+
+# fonts
+font.family : FreeSans
+font.sans-serif : FreeSans
+
+# legend
+legend.fontsize : 20
+
+# axes
+axes.titlesize : 12
+axes.labelsize : 24
+axes.linewidth : 1
+
+# plot lines
+lines.linewidth : 2
+lines.markersize : 10
+
+# ticks
+xtick.labelsize : 20
+ytick.labelsize : 20
+xtick.direction : in
+xtick.top : True
+xtick.bottom : True
+xtick.minor.visible : True
+ytick.direction : in
+ytick.right : True
+ytick.left : True
+ytick.minor.visible : True
