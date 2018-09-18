@@ -16,6 +16,9 @@ alias la='ls -Alh'        # show hidden files
 alias lt='ls -ltrh'       # sort by date, most recent last
 alias ..='cd ..' 	  # go up directory
 
+# always expand symlinks
+alias pwd='pwd -P'
+
 # list top 10 biggest files in a place
 alias bigfiles='du -a . | sort -nr | less'
 
