@@ -5,3 +5,5 @@ alias ags='apt search'
 alias agu='sudo apt update'
 alias agU='sudo apt upgrade'
 alias aguU='agu; agU; sudo apt autoremove'
+
+source /usr/share/bash-completion/bash_completion
