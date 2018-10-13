@@ -98,6 +98,9 @@ fi
 # scons with the 'figure out the correct directory' option
 alias scons='scons -D'
 
+# rsync with helpful
+alias rsync='rsync -arvzSH'
+
 ##################
 ## Environment ###
 ##################
