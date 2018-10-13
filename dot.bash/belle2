@@ -1,12 +1,6 @@
 export BELLE2_USER=scunliff
 export BELLE2_GIT_ACCESS=ssh 
 
-alias b2='. /cvmfs/belle.cern.ch/sl6/tools/b2setup'
-
-alias b2sr7='b2 && b2setup release-00-07-02'
-alias b2sr8='b2 && b2setup release-00-08-00'
-alias b2sr9='b2 && b2setup release-00-09-00'
-alias b2sr1='b2 && b2setup release-01-02-00'
-alias b2sr2='b2 && b2setup release-02-00-00'
-
-alias gb2='. $HOME/sw/gbasf2/setup_gbasf2'
+alias b2='. /cvmfs/belle.cern.ch/tools/b2setup'
+alias s='scons -D analysis'
+alias gb2='. $HOME/gb2/gb2_commands.sh'
