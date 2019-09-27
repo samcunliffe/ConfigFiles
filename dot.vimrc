@@ -4,7 +4,7 @@
 set nocompatible
 
 " load pathogen for vim extensions in the bundle/ directory
-call pathogen#infect()
+"call pathogen#infect()
 
 """"""""""""""""""""""""""""""
 " Misc Settings that I like "
