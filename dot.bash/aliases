@@ -10,11 +10,11 @@ alias mv='mv -i'
 
 # the 'ls' family 
 alias cl='clear && ls -hF --color'
-alias ll="ls -lh"
-alias l='ls -hF --color'
-alias la='ls -Alh'        # show hidden files
-alias lt='ls -ltrh'       # sort by date, most recent last
-alias ..='cd ..' 	  # go up directory
+alias ll="ls -lh --color"         # list 
+alias l='ls -hF --color'          # ultra shortcut for 'ls' but with color
+alias la='ls -Alh --color'        # show hidden files
+alias lt='ls -ltrh --color'       # sort by date, most recent last
+alias ..='cd ..' 	          # go up directory
 
 # always expand symlinks
 alias pwd='pwd -P'
