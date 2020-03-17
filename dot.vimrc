@@ -41,6 +41,9 @@ filetype plugin indent on
 " colours and colour schemes "
 """"""""""""""""""""""""""""""
 
+" ron is the best
+colorscheme ron
+
 " I use folds, so let's not have them looking butt ugly
 highlight Folded ctermfg=magenta ctermbg=darkgreen
 highlight Folded guifg=magenta   guibg=darkgreen
