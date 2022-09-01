@@ -6,10 +6,19 @@ then
 	. ~/.bash/aliases
 fi
 
-# sourch Belle II specific aliases
-if [ -f ~/.bash/belle2 ]
+if hash lsb_release 2>/dev/null;
 then
-	. ~/.bash/belle2
+	# Source some aliases for ubuntu only
+	if [ -f ~/.bash/ubuntu ]
+	then
+		. ~/.bash/ubuntu
+	fi
+else
+	# Source some aliases for mac only
+	if [ -f ~/.bash/apple ]
+	then
+		. ~/.bash/apple
+	fi
 fi
 
 # sourch definitions relevent to this machine
@@ -18,7 +27,6 @@ if [ -f ~/.bash/local ]
 then
 	. ~/.bash/local
 fi
-
 
 # command to check everything
 hello() {
@@ -35,17 +43,16 @@ hello() {
 	printf "Kernel version\t%s\n" "$(uname -r)"
 	printf "GCC version\t%s\n" "$(gcc -dumpversion)"
 	printf "python3 version\t"
-	# python -V is a total pain and needs to have the stream redirected
-	# also, it already terminates in a '\n' newline so just take the
-        # output from sed
+	# python -V and gch are a total pain and needs to have the stream
+	# redirected also, it already terminates in a '\n' newline so just take
+	# the output from sed
 	sed 's/[A-Za-z ]//g' <<< "$(python3 --version 2>&1)"
-	printf "ROOT version\t%s\n" "$(root-config --version)"
-	#printf "ghc version\t" 
-	#sed 's/[A-Za-z ,]//g' <<< $(ghc --version)
+	printf "ghc version\t" 
+	sed 's/[A-Za-z ,]//g' <<< $(ghc --version)
 }
 
 # only do echo commands and fancy prompts in interactive mode 
 case "$-" in
-	*i*) PS1=$LOC_COL"⮞ %f%b";;
+	*i*) PS1=$LOC_COL"➤ %f%b";;
 	  *) # This shell is not interactive
 esac

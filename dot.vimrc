@@ -87,7 +87,7 @@ map <leader>p :set nonumber<CR>:set paste<CR>
 
 " Create out-of-paste mode
 map <leader>o :set number<CR>:set nopaste<CR>
-ret mapleader = ","
+let mapleader = ","
 
 "Pressing ,ss will toggle and untoggle spell checking
 map <leader>ss :setlocal spell!<cr>
