@@ -7,3 +7,4 @@ alias agU='sudo apt upgrade'
 alias aguU='agu; agU; sudo apt autoremove'
 
 source /usr/share/bash-completion/bash_completion
+echo "🐧️"
