@@ -41,6 +41,7 @@ hello() {
 	printf "Today is\t%s\n" "$(date)"
 	printf "You're using\t%s on %s\n" "$swvers" "$(hostname)"
 	printf "Kernel version\t%s\n" "$(uname -r)"
+	printf "Architecture\t%s\n" "$(arch)"
 	printf "GCC version\t%s\n" "$(gcc -dumpversion)"
 	printf "python3 version\t"
 	# python -V and gch are a total pain and needs to have the stream
@@ -56,3 +57,4 @@ case "$-" in
 	*i*) PS1=$LOC_COL"➤ %f%b";;
 	  *) # This shell is not interactive
 esac
+
