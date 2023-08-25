@@ -14,6 +14,8 @@ hello() {
 	printf "Kernel version\t%s\n" "$(uname -r)"
 	printf "Architecture\t%s\n" "$(arch)"
 	printf "GCC version\t%s\n" "$(gcc -dumpversion)"
+	printf "clang version\t" 
+	clang -v 2>&1 | grep version | sed 's/.*version \([0-9]*.[0-9]*.[0-9]*\) .*/\1/g'
 	printf "python3 version\t"
 	# python -V and gch are a total pain and needs to have the stream
 	# redirected also, it already terminates in a '\n' newline so just take
@@ -54,6 +56,9 @@ alias me='top -u `whoami`'
 # file safety
 backup () { cp "$1"{,.bkup}; }
 
+# why is this not a thing natively in git?
+alias git-branchcleanup="git branch --merged | grep -v '\* main' | xargs -n 1 git branch -d"
+
 ######################
 ## Ultra-short cuts ##
 ######################
@@ -66,6 +71,8 @@ alias p='python3'
 alias i='ipython3'
 alias m='make'
 alias M='make clean && make'
+alias P='pre-commit run --all'
+
 
 # open common filetypes with one command
 o () {
