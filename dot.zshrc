@@ -31,7 +31,7 @@ fi
 
 # only do echo commands and fancy prompts in interactive mode 
 case "$-" in
-	*i*) PS1=$LOC_COL"➤ %f%b";;
+	*i*) PS1=$LOC_COL"%{%G➤%} %f%b";;
 	  *) # This shell is not interactive
 esac
 

@@ -41,8 +41,9 @@ filetype plugin indent on
 " colours and colour schemes "
 """"""""""""""""""""""""""""""
 
-" ron is the best
-colorscheme ron
+" current favourite is 'evening' ron was nice on ubuntu but looks terrible in
+" the MacOS terminal
+colorscheme evening
 
 " I use folds, so let's not have them looking butt ugly
 highlight Folded ctermfg=magenta ctermbg=darkgreen
