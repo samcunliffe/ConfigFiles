@@ -10,3 +10,6 @@
 [submodule "dot.vim/bundle/julia-vim"]
 	path = dot.vim/bundle/julia-vim
 	url = git://github.com/JuliaEditorSupport/julia-vim.git
+[submodule "dot.zsh/zsh-autosuggestions"]
+	path = dot.zsh/zsh-autosuggestions
+	url = git@github.com:zsh-users/zsh-autosuggestions.git

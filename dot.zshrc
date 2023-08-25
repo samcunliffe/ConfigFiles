@@ -28,6 +28,12 @@ then
 	. ~/.bash/local
 fi
 
+# source zsh autosuggestions if it's there
+if [ -d ~/.zsh/zsh-autosuggestions ]
+then
+	source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
+
 
 # only do echo commands and fancy prompts in interactive mode 
 case "$-" in
