@@ -6,9 +6,9 @@
 set lines=80 columns=120
 
 " aesthetics
-colorscheme navajo-night    " nice color scheme
-set guioptions-=T           " turns off button toolbar
-set guioptions-=r           " turns off rh scrollbar
+colorscheme evening " nice color scheme
+set guioptions-=T   " turns off button toolbar
+set guioptions-=r   " turns off rh scrollbar
 
 if has("gui_running")
   if has("gui_gtk2")
