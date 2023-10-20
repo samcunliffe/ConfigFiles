@@ -17,6 +17,3 @@ if has("gui_running")
     set guifont=Menlo\ Regular:h15
   endif
 endif
-
-" syntastic
-let g:syntastic_c_include_dirs = [ '../include', 'include', '/afs/cern.ch/sw/lcg/app/releases/ROOT/5.34.05/x86_64-slc5-gcc46-opt/root/include/' ]
