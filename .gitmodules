@@ -4,9 +4,6 @@
 [submodule "dot.vim/bundle/vim-pathogen"]
 	path = dot.vim/bundle/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen
-[submodule "dot.vim/bundle/vim-tmux-navigator"]
-	path = dot.vim/bundle/vim-tmux-navigator
-	url = https://github.com/christoomey/vim-tmux-navigator
 [submodule "dot.vim/bundle/julia-vim"]
 	path = dot.vim/bundle/julia-vim
 	url = git://github.com/JuliaEditorSupport/julia-vim.git

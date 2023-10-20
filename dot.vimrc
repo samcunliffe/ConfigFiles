@@ -3,9 +3,6 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-" load pathogen for vim extensions in the bundle/ directory
-"call pathogen#infect()
-
 """"""""""""""""""""""""""""""
 " Misc Settings that I like "
 """"""""""""""""""""""""""""""
@@ -61,19 +58,14 @@ nmap <silent> <C-k> <C-w><C-k>
 nmap <silent> <C-j> <C-w><C-j>
 nmap <silent> <C-h> <C-w><C-h>
 nmap <silent> <C-l> <C-w><C-l>
-" n.b. this is also configured with vim-tmux-navigator plugin
 
 " Disable arrow keys -- bully myself into using hjkl
 map <up> <nop>
 map <down> <nop>
 map <left> <nop>
 map <right> <nop>
-"imap <up> <nop>
-"imap <down> <nop>
-"imap <left> <nop>
-"imap <right> <nop>
-"
-" Disable FUCKING Ex mode... which is NO USE WHATSOEVER
+
+" Disable Ex mode... which is NO USE WHATSOEVER
 map Q <nop>
 
 """"""""""""""""""""""""
@@ -111,7 +103,7 @@ let python_highlight_exceptions = 1
 """"""""""""""""""""""""""""""""""""""
 
 " turn on spell check by default for some filetypes
-autocmd BufRead,BufNewFile *.md setlocal spell            " markdown
+autocmd BufRead,BufNewFile *.md setlocal spell " markdown
 autocmd BufRead,BufNewFile *.md setlocal complete+=kspell
 autocmd FileType gitcommit setlocal spell
 autocmd FileType gitcommit setlocal complete+=kspell
