@@ -11,78 +11,75 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
 
 # Left hand side: os, path, git
 [[blocks]]
-type = 'prompt'
-alignment = 'left'
-newline = true
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
 
-[[blocks.segments]]
-type = 'os'
-style = 'plain'
-template = '{{.Icon}}'
-
-[[blocks.segments]]
-type = 'path'
-style = 'plain'
-background = 'transparent'
-foreground = 'blue'
-template = '  {{ .Path }}'
-
-[blocks.segments.properties]
-style = 'powerlevel'
-
-[[blocks.segments]]
-type = 'git'
-style = 'plain'
-foreground = 'green'
-background = 'transparent'
-template = '  {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>'
-
-[blocks.segments.properties]
-branch_icon = ''
-commit_icon = '@'
-fetch_status = true
-
+  [[blocks.segments]]
+    type = 'os'
+    style = 'plain'
+    template = '{{.Icon}}'
+  
+  [[blocks.segments]]
+    type = 'path'
+    style = 'plain'
+    background = 'transparent'
+    foreground = 'blue'
+    template = '  {{ .Path }}'
+    [blocks.segments.properties]
+      style = 'powerlevel'
+  
+  [[blocks.segments]]
+    type = 'git'
+    style = 'plain'
+    foreground = 'green'
+    background = 'transparent'
+    template = '  {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>'
+    [blocks.segments.properties]
+      branch_icon = ''
+      commit_icon = '@'
+      fetch_status = true
+  
 # Right hand side
 [[blocks]]
-type = 'prompt'
-alignment = 'right'
-overflow = 'hidden'
+    type = 'prompt'
+    alignment = 'right'
+    overflow = 'hidden'
 
-# Execution time for slow commands
-[[blocks.segments]]
-type = 'executiontime'
-style = 'plain'
-foreground = 'yellow'
-background = 'transparent'
-template = ' {{ .FormattedMs }}'
-
-# python virtual/conda environment
-[[blocks.segments]]
-type = 'python'
-style = 'plain'
-foreground = 'cyan'
-template = '  {{ if .Venv }}{{ .Venv }}{{ end }}'
-
-[blocks.segments.properties]
-fetch_virtual_env = true 
-home_enabled = true # even in the home directory, show the conda environment
+    # Execution time for slow commands
+    [[blocks.segments]]
+      type = 'executiontime'
+      style = 'plain'
+      foreground = 'yellow'
+      background = 'transparent'
+      template = ' {{ .FormattedMs }}'
+  
+  # python virtual/conda environment
+  [[blocks.segments]]
+    type = 'python'
+    style = 'plain'
+    foreground = 'cyan'
+    template = '  {{ if .Venv }}{{ .Venv }}{{ end }}'
+    [blocks.segments.properties]
+      fetch_virtual_env = true 
+      home_enabled = true # even in the home directory, show the conda environment
 
 # The actual prompt is below the infoline 'prompt' blocks
 [[blocks]]
-type = 'prompt'
-alignment = 'left'
-newline = true
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
 
-[[blocks.segments]]
-type = 'text'
-style = 'plain'
-foreground_templates = [
-  '{{if gt .Code 0}}red{{end}}',
-  '{{if eq .Code 0}}green{{end}}',
-]
-background = 'transparent'
-template = '❯'
+  [[blocks.segments]]
+  type = 'text'
+  style = 'plain'
+  foreground_templates = [
+    '{{if gt .Code 0}}red{{end}}',
+    '{{if eq .Code 0}}green{{end}}',
+  ]
+  background = 'transparent'
+  template = '❯'
 
-[secondary_prompt]
-foreground = 'magenta'
-template = '❯❯ '
+  [secondary_prompt]
+    foreground = 'magenta'
+    template = '❯❯ '
