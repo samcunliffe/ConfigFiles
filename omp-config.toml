@@ -9,23 +9,22 @@ version = 2
 final_space = true
 console_title_template = '{{ .Shell }} in {{ .Folder }}'
 
+
 # Left hand side: os, path, git
 [[blocks]]
   type = 'prompt'
   alignment = 'left'
-  newline = true
 
   [[blocks.segments]]
-    type = 'os'
-    style = 'plain'
-    template = '{{.Icon}}'
-  
+    type = "os"
+    style = "plain"
+    template = "{{.Icon}}"
+ 
   [[blocks.segments]]
     type = 'path'
     style = 'plain'
-    background = 'transparent'
     foreground = 'blue'
-    template = '  {{ .Path }}'
+    template = '  {{ .Path }} '
     [blocks.segments.properties]
       style = 'powerlevel'
   
@@ -33,26 +32,25 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
     type = 'git'
     style = 'plain'
     foreground = 'green'
-    background = 'transparent'
-    template = '  {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>'
+    template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>'
     [blocks.segments.properties]
       branch_icon = ''
       commit_icon = '@'
       fetch_status = true
-  
+   
+
 # Right hand side
 [[blocks]]
-    type = 'prompt'
-    alignment = 'right'
-    overflow = 'hidden'
+  type = 'prompt'
+  alignment = 'right'
+  overflow = 'hidden'
 
-    # Execution time for slow commands
-    [[blocks.segments]]
-      type = 'executiontime'
-      style = 'plain'
-      foreground = 'yellow'
-      background = 'transparent'
-      template = ' {{ .FormattedMs }}'
+  # Execution time for slow commands
+  [[blocks.segments]]
+    type = 'executiontime'
+    style = 'plain'
+    foreground = 'yellow'
+    template = ' {{ .FormattedMs }}'
   
   # python virtual/conda environment
   [[blocks.segments]]
@@ -63,7 +61,7 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
     [blocks.segments.properties]
       fetch_virtual_env = true 
       home_enabled = true # even in the home directory, show the conda environment
-
+ 
 # The actual prompt is below the infoline 'prompt' blocks
 [[blocks]]
   type = 'prompt'
@@ -77,7 +75,6 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
     '{{if gt .Code 0}}red{{end}}',
     '{{if eq .Code 0}}green{{end}}',
   ]
-  background = 'transparent'
   template = '❯'
 
   [secondary_prompt]
