@@ -1,46 +1,88 @@
 #:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
 
+# Based on DreamsOfAutonomy's Zen config
+# https://github.com/dreamsofautonomy/zen-omp/blob/main/zen.toml
+
+# Tweaked to my liking and how was used to powerlevel10k
+
 version = 2
+final_space = true
+console_title_template = '{{ .Shell }} in {{ .Folder }}'
 
+# Left hand side: os, path, git
 [[blocks]]
-  type = 'rprompt'
+type = 'prompt'
+alignment = 'left'
+newline = true
 
-  [[blocks.segments]]
-    type = 'executiontime'
-    style = 'plain'
-    foreground = '#00C5C7'
-    template = ' {{ .FormattedMs }} '
+[[blocks.segments]]
+type = 'os'
+style = 'plain'
+template = '{{.Icon}}'
 
+[[blocks.segments]]
+type = 'path'
+style = 'plain'
+background = 'transparent'
+foreground = 'blue'
+template = '  {{ .Path }}'
+
+[blocks.segments.properties]
+style = 'powerlevel'
+
+[[blocks.segments]]
+type = 'git'
+style = 'plain'
+foreground = 'green'
+background = 'transparent'
+template = '  {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>'
+
+[blocks.segments.properties]
+branch_icon = ''
+commit_icon = '@'
+fetch_status = true
+
+# Right hand side
 [[blocks]]
-  type = 'prompt'
-  alignment = 'left'
+type = 'prompt'
+alignment = 'right'
+overflow = 'hidden'
 
-  [[blocks.segments]]
-    type = 'path'
-    style = 'plain'
-    foreground = '#77E4F7'
-    template = '  {{ path .Path .Location }} '
+# Execution time for slow commands
+[[blocks.segments]]
+type = 'executiontime'
+style = 'plain'
+foreground = 'yellow'
+background = 'transparent'
+template = ' {{ .FormattedMs }}'
 
-    [blocks.segments.properties]
-      style = 'powerlevel'
+# python virtual/conda environment
+[[blocks.segments]]
+type = 'python'
+style = 'plain'
+foreground = 'cyan'
+template = '  {{ if .Venv }}{{ .Venv }}{{ end }}'
 
-  [[blocks.segments]]
-    type = 'git'
-    style = 'plain'
-    foreground = '#FFE700'
-    template = '{{ .HEAD }} '
+[blocks.segments.properties]
+fetch_virtual_env = true 
+home_enabled = true # even in the home directory, show the conda environment
 
+# The actual prompt is below the infoline 'prompt' blocks
 [[blocks]]
-  type = 'prompt'
-  alignment = 'left'
-  newline = true
+type = 'prompt'
+alignment = 'left'
+newline = true
 
-  [[blocks.segments]]
-    type = 'text'
-    style = 'plain'
-    foreground_templates = [
-      "{{if gt .Code 0}}red{{end}}",
-      "{{if eq .Code 0}}yellow{{end}}",
-    ]
-    background = 'transparent'
-    template = '❯ '
+[[blocks.segments]]
+type = 'text'
+style = 'plain'
+foreground_templates = [
+  '{{if gt .Code 0}}red{{end}}',
+  '{{if eq .Code 0}}green{{end}}',
+]
+background = 'transparent'
+template = '❯'
+
+[secondary_prompt]
+foreground = 'magenta'
+template = '❯❯ '
