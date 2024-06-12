@@ -64,13 +64,10 @@ alias git-branchcleanup="git branch --merged | grep -v '\* main' | xargs -n 1 gi
 ######################
 
 # use with care, not to everybody's taste
-alias v='vim'
-alias g='gvim'
-alias r='root -l'   # never want the splash screen
+alias v='nvim'
+alias vim='nvim'
 alias p='python3'
 alias i='ipython3'
-alias m='make'
-alias M='make clean && make'
 alias P='pre-commit run --all'
 
 
