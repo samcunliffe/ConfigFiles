@@ -11,4 +11,8 @@ eval $(thefuck --alias)
 alias ghci="TERM=dumb ghci"
 
 alias evince="echo 'This is apple. evince → open.' && open"
-echo ""
+#echo ""
+
+# allows Coreutils package to be used without 'g' prefix before each command.
+export PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
+export MANPATH="$(brew --prefix)/opt/coreutils/libexec/gnuman:$MANPATH"
