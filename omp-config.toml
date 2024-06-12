@@ -1,0 +1,46 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+
+[[blocks]]
+  type = 'rprompt'
+
+  [[blocks.segments]]
+    type = 'executiontime'
+    style = 'plain'
+    foreground = '#00C5C7'
+    template = ' {{ .FormattedMs }} '
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'plain'
+    foreground = '#77E4F7'
+    template = '  {{ path .Path .Location }} '
+
+    [blocks.segments.properties]
+      style = 'powerlevel'
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'plain'
+    foreground = '#FFE700'
+    template = '{{ .HEAD }} '
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    foreground_templates = [
+      "{{if gt .Code 0}}red{{end}}",
+      "{{if eq .Code 0}}yellow{{end}}",
+    ]
+    background = 'transparent'
+    template = '❯ '
