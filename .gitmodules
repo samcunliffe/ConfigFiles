@@ -10,3 +10,6 @@
 [submodule "dot.zsh/zsh-autosuggestions"]
 	path = dot.zsh/zsh-autosuggestions
 	url = git@github.com:zsh-users/zsh-autosuggestions.git
+[submodule "dot.zsh/powerlevel10k"]
+	path = dot.zsh/powerlevel10k
+	url = git@github.com:romkatv/powerlevel10k.git
